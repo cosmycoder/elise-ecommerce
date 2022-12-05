@@ -82,8 +82,8 @@ export const ProductCard = (props: Props) => {
           </Text>
         </HStack>
       </Stack>
-      <Stack align='center'>
-        <Button bg={'gray.500'} colorScheme='gray' width='full' mt='.5rem'>
+      <Stack align='center' mt='.5rem'>
+        <Button bg={'gray.500'} colorScheme='gray' width='full'>
           Add to cart
         </Button>
         <Link
