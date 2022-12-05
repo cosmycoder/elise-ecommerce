@@ -62,16 +62,16 @@ export const ProductCard = (props: Props) => {
         />
       </Box>
       <Stack spacing='1' my='auto'>
-        {/* <Tooltip> */}
-        <Text
-          fontWeight='medium'
-          textAlign={'center'}
-          color={useColorModeValue('gray.700', 'gray.400')}
-          noOfLines={[2]}
-        >
-          {title}
-        </Text>
-        {/* </Tooltip> */}
+        <Tooltip hasArrow label={title} placement='bottom'>
+          <Text
+            fontWeight='medium'
+            textAlign={'center'}
+            color={useColorModeValue('gray.700', 'gray.400')}
+            noOfLines={[2]}
+          >
+            {title}
+          </Text>
+        </Tooltip>
       </Stack>
       <PriceTag price={price} currency='USD' />
       <Stack>
