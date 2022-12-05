@@ -29,7 +29,7 @@ interface Props {
 
 export const ProductCard = (props: Props) => {
   const { product, rootProps } = props
-  const { title, image, price, salePrice, rating } = product
+  const { title, image, price, rating } = product
 
   return (
     <Flex
@@ -73,7 +73,7 @@ export const ProductCard = (props: Props) => {
         </Text>
         {/* </Tooltip> */}
       </Stack>
-      <PriceTag price={price} salePrice={salePrice} currency='USD' />
+      <PriceTag price={price} currency='USD' />
       <Stack>
         <HStack>
           <Rating defaultValue={rating.rate} size='sm' />

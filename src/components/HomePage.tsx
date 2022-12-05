@@ -3,6 +3,7 @@ import { Box, Text, Center, useToast, Skeleton } from '@chakra-ui/react'
 import { ProductGrid } from './Product/ProductGrid'
 import { ProductCard } from './Product/ProductCard'
 import React from 'react'
+import { Product } from '../types/fakeApiTypes'
 
 function HomePage() {
   const [hasMounted, setHasMounted] = React.useState(false)
@@ -50,20 +51,9 @@ function HomePage() {
           Welcome to <Text fontWeight={'extrabold'}>&nbsp;Alice</Text>, your one stop shop!
         </Text>
       </Center>
-      {/* <form onSubmit={handleSearch}>
-        <Input
-          type='text'
-          placeholder='Search for products'
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-        <Button type='submit' colorScheme='teal'>
-          Search
-        </Button>
-      </form> */}
 
       <ProductGrid>
-        {products.map((product) => (
+        {products.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </ProductGrid>
