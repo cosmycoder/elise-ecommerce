@@ -47,8 +47,12 @@ function HomePage() {
   return (
     <Box bg='white' rounded={'xl'}>
       <Center pt='1.5rem' mb='5rem'>
-        <Text fontSize='3xl' textAlign={'center'} display={'inline-flex'}>
-          Welcome to <Text fontWeight={'extrabold'}>&nbsp;Alice</Text>, your one stop shop!
+        <Text fontSize='3xl' textAlign={'center'}>
+          Welcome to
+          <Text as='span' fontWeight={'extrabold'}>
+            &nbsp;Alice
+          </Text>
+          , your one stop shop!
         </Text>
       </Center>
 

@@ -17,7 +17,7 @@ export default function Layout({ children }: any) {
         justify='center'
         py={4}
       >
-        <Text as='i'>Alice Premium Products - Copyright 2022</Text>
+        <Text>Alice Premium Products - Copyright 2022</Text>
       </Flex>
     </Flex>
   )
