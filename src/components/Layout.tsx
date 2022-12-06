@@ -17,7 +17,7 @@ export default function Layout({ children }: any) {
         justify='center'
         py={4}
       >
-        <Text>Elise Premium Products - Copyright 2022</Text>
+        <Text fontWeight={'600'}>Elise - 2022</Text>
       </Flex>
     </Flex>
   )
