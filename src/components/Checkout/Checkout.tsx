@@ -14,10 +14,18 @@ import {
 import { Product } from '../../types/fakeApiTypes'
 
 export const Checkout = () => {
-  const cart = [{ id: '1' }]
+  const cart = [
+    {
+      id: '1',
+      name: 'Epic Sneakers',
+      shortDescription: "Epic as hell, these are the best sneakers you'll ever see.",
+      quantity: '3',
+      price: '299$',
+    },
+  ]
 
   function calculateSubtotal(products: Product[]): number {
-    // calculate subtotal here
+    // will calculate subtotal here
     return 500
   }
 
@@ -26,7 +34,7 @@ export const Checkout = () => {
     zipCode: string,
     shippingMethod: string,
   ): number {
-    // calculate shipping cost here
+    // will calculate shipping cost here
     return 5
   }
 
@@ -92,10 +100,10 @@ export const Checkout = () => {
             </Text>
           </Box>
 
-          {/* Map over the products in the cart and display each one in a separate row */}
+          {/* Todo: will map over the products in the cart and display each one in a separate row */}
 
           {cart.map((product) => (
-            <Box key={product.id} d='flex' alignItems='center' mb={4}>
+            <Box key={product.id} display='flex' alignItems='center' mb={4}>
               <Box
                 width={40}
                 height={40}
@@ -129,7 +137,7 @@ export const Checkout = () => {
               Subtotal
             </Text>
             <Text fontSize='md' fontWeight='bold'>
-              {calculateSubtotal(cart)}
+              {/* {calculateSubtotal(cart)} */}
             </Text>
           </Box>
           <Box>
@@ -137,7 +145,7 @@ export const Checkout = () => {
               Shipping cost
             </Text>
             <Text fontSize='md' fontWeight='bold'>
-              {calculateShippingCost(cart)}
+              {/* {calculateShippingCost(cart)} */}
             </Text>
           </Box>
           <Box>
@@ -157,7 +165,7 @@ export const Checkout = () => {
             </Text>
           </Box>
           <Box>
-            <Button variantColor='blue' size='lg' width='full'>
+            <Button colorScheme='#6495ED' size='lg' width='full'>
               Place order
             </Button>
           </Box>
