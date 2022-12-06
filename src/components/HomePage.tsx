@@ -49,8 +49,8 @@ function HomePage() {
       <Center pt='1.5rem' mb='5rem'>
         <Text fontSize='3xl' textAlign={'center'}>
           Welcome to
-          <Text as='span' fontWeight={'extrabold'}>
-            &nbsp;Alice
+          <Text color='cornflowerblue' as='span' fontWeight={'extrabold'}>
+            &nbsp;Elise
           </Text>
           , your one stop shop!
         </Text>

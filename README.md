@@ -2,4 +2,4 @@
 
 ## It is currently under construction.
 
-I'll include a link to the project once it's live.
+Here's the link to [project](https://onurs-ecommerce-site.netlify.app/) in its current state.

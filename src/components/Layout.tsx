@@ -7,7 +7,7 @@ export default function Layout({ children }: any) {
       <Box as='header' bg='linear-gradient(to top, transparent, gray)' color='white' p='4'>
         <Navbar />
       </Box>
-      <Box as='main' flex={1} p='4'>
+      <Box w='100%' flex='1' as='main' p='4'>
         {children}
       </Box>
       <Flex
@@ -17,7 +17,7 @@ export default function Layout({ children }: any) {
         justify='center'
         py={4}
       >
-        <Text>Alice Premium Products - Copyright 2022</Text>
+        <Text>Elise Premium Products - Copyright 2022</Text>
       </Flex>
     </Flex>
   )
