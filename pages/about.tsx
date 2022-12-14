@@ -2,6 +2,7 @@ import { Flex, Text, Stack, chakra, Box } from '@chakra-ui/react'
 import { faShop } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Navbar } from '../src/components/NavBar'
+import { ScrollToTop } from '../src/components/ScrollToTop'
 
 export default function Index() {
   const Icon = chakra(FontAwesomeIcon)
@@ -12,10 +13,17 @@ export default function Index() {
         <Navbar />
       </Box>
       <Flex my='auto'>
-        <Flex justifyContent='center'>
-          <Stack w='75%'>
-            <Icon icon={faShop} color='#6495ED' size='2x' mb='1rem' />
-            <Text fontSize='3xl' textAlign={'center'}>
+        <Flex justifyContent='center' flexDir={'column'}>
+          <Icon
+            icon={faShop}
+            color='#6495ED'
+            w={['3rem', '10rem', '20rem']}
+            h={['2rem', '3rem', '4rem']}
+            mb='1rem'
+            mx='auto'
+          />
+          <Stack w='75%' mx='auto'>
+            <Text fontSize={['xl', '2xl', '3xl']} fontWeight='600' textAlign={'center'}>
               <Text color={'cornflowerblue'} as='span' fontWeight={'800'}>
                 At Elise
               </Text>
@@ -23,13 +31,13 @@ export default function Index() {
               possible. We offer a wide range of high-quality products at competitive prices, and
               our team is dedicated to providing excellent customer service.{' '}
             </Text>
-            <Text fontSize='3xl' textAlign={'center'}>
+            <Text fontSize={['xl', '2xl', '3xl']} fontWeight='600' textAlign={'center'}>
               We believe in the importance of sustainability and ethical practices, and we strive to
               source our products from responsible and environmentally-friendly sources. We also
               offer a variety of eco-friendly and sustainable products for our customers who are
               looking to make more sustainable choices in their everyday lives.
             </Text>
-            <Text fontSize='3xl' textAlign={'center'}>
+            <Text fontSize={['xl', '2xl', '3xl']} fontWeight='600' textAlign={'center'}>
               At Elise, we are constantly working to improve and evolve, and we are always looking
               for ways to better serve our customers. We thank you for choosing to shop with us, and
               we look forward to continuing to provide you with the best possible online shopping
@@ -50,6 +58,7 @@ export default function Index() {
       >
         <Text fontWeight={'600'}>Elise - 2022</Text>
       </Flex>
+      <ScrollToTop />
     </Flex>
   )
 }

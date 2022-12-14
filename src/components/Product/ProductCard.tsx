@@ -43,6 +43,7 @@ export const ProductCard = (props: Props) => {
       <Box position='relative'>
         <Flex bg='white' rounded={'lg'} justifyContent={'center'} alignContent='center'>
           <Image
+            display={'block'}
             objectFit={'contain'}
             w='16rem'
             h='12rem'
@@ -50,7 +51,7 @@ export const ProductCard = (props: Props) => {
             src={image}
             alt={title}
             draggable='false'
-            fallback={<Skeleton />}
+            fallback={<Skeleton w='18rem' h='12rem' />}
             borderRadius={useBreakpointValue({ base: 'md', md: 'xl' })}
           />
         </Flex>

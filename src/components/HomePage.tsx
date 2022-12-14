@@ -1,19 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Box, Text, Center, useToast, Skeleton } from '@chakra-ui/react'
-import { ProductGrid } from './Product/ProductGrid'
+import { Box, Text, Center, useToast, Skeleton, Flex } from '@chakra-ui/react'
 import { ProductCard } from './Product/ProductCard'
 import React from 'react'
 import { Product } from '../types/fakeApiTypes'
 
 function HomePage() {
-  const [hasMounted, setHasMounted] = React.useState(false)
   const [products, setProducts] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
-  const toast = useToast()
-
-  React.useEffect(() => {
-    setHasMounted(true)
-  }, [])
 
   useEffect(() => {
     // fetching products from the server and update state
@@ -22,12 +15,6 @@ function HomePage() {
       .then((products) => setProducts(products))
       .catch((err) => console.error(err))
   }, [])
-
-  // To prevent hydration issues with React.
-  if (!hasMounted) {
-    return <Skeleton h='100vh' w='100vw' />
-  }
-
   // function handleSearch(event: React.FormEvent) {
   //   event.preventDefault()
   //   // search for products matching the search term
@@ -45,7 +32,7 @@ function HomePage() {
   // }
 
   return (
-    <Box bg='white' rounded={'xl'}>
+    <Box bg='white' rounded={'xl'} height='100vw'>
       <Center pt='1.5rem' mb='5rem'>
         <Text fontSize='3xl' textAlign={'center'}>
           Welcome to
@@ -56,11 +43,18 @@ function HomePage() {
         </Text>
       </Center>
 
-      <ProductGrid>
+      <Flex
+        className='productsContainer'
+        maxW='100%'
+        wrap={'wrap'}
+        gap='2rem'
+        justifyContent={'center'}
+        flexGrow='100%'
+      >
         {products.map((product: Product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </ProductGrid>
+      </Flex>
     </Box>
   )
 }
