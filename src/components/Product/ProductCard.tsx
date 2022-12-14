@@ -1,14 +1,11 @@
 import {
-  AspectRatio,
   Box,
   Button,
-  Center,
   Flex,
   HStack,
   Image,
   Link,
   Skeleton,
-  Spacer,
   Stack,
   StackProps,
   Text,
@@ -84,7 +81,7 @@ export const ProductCard = (props: Props) => {
         </HStack>
       </Stack>
       <Stack align='center' mt='.5rem'>
-        <Button bg={'gray.500'} colorScheme='gray' width='full'>
+        <Button colorScheme={'facebook'} width='full'>
           Add to cart
         </Button>
         <Link

@@ -32,7 +32,7 @@ function HomePage() {
   // }
 
   return (
-    <Box bg='white' rounded={'xl'} height='100vw'>
+    <Box bg='white' rounded={'xl'} minH='85vh'>
       <Center pt='1.5rem' mb='5rem'>
         <Text fontSize='3xl' textAlign={'center'}>
           Welcome to
