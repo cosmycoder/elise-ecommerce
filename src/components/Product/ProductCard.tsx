@@ -18,6 +18,7 @@ import { Rating } from './Rating'
 import { FavouriteButton } from './FavouriteButton'
 import { PriceTag } from './PriceTag'
 import { Product } from '../../types/fakeApiTypes'
+import { useCartContext } from '../../../context/cartContext'
 
 interface Props {
   product: Product
@@ -27,6 +28,7 @@ interface Props {
 export const ProductCard = (props: Props) => {
   const { product, rootProps } = props
   const { title, image, price, rating } = product
+  const { cart, addToCart } = useCartContext()
 
   return (
     <Flex
@@ -81,7 +83,7 @@ export const ProductCard = (props: Props) => {
         </HStack>
       </Stack>
       <Stack align='center' mt='.5rem'>
-        <Button colorScheme={'facebook'} width='full'>
+        <Button colorScheme={'facebook'} width='full' onClick={() => addToCart(product.id, 1)}>
           Add to cart
         </Button>
         <Link

@@ -4,6 +4,7 @@ import { faShop } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { goToPage } from '../helpers/routeFunctions'
 
 export const Navbar = () => {
   const [display, setDisplay] = useState('none')
@@ -27,26 +28,38 @@ export const Navbar = () => {
         ml='auto'
         alignItems={'center'}
       >
-        <Link href='/'>
-          <Button color='black' fontWeight={'1000'} variant='link'>
-            Home
-          </Button>
-        </Link>
-        <Link href='/shopping-cart'>
-          <Button color='black' fontWeight={'1000'} variant='link'>
-            Cart
-          </Button>
-        </Link>
-        <Link href='/checkout'>
-          <Button color='black' fontWeight={'1000'} variant='link'>
-            Checkout
-          </Button>
-        </Link>
-        <Link href='/about'>
-          <Button color='black' fontWeight={'1000'} variant='link'>
-            About
-          </Button>
-        </Link>
+        <Button
+          color='black'
+          fontWeight={'1000'}
+          variant='link'
+          onClick={() => goToPage(setDisplay)}
+        >
+          Home
+        </Button>
+        <Button
+          color='black'
+          fontWeight={'1000'}
+          variant='link'
+          onClick={() => goToPage(setDisplay, 'shopping-cart')}
+        >
+          Cart
+        </Button>
+        <Button
+          color='black'
+          fontWeight={'1000'}
+          variant='link'
+          onClick={() => goToPage(setDisplay, 'checkout')}
+        >
+          Checkout
+        </Button>
+        <Button
+          color='black'
+          fontWeight={'1000'}
+          variant='link'
+          onClick={() => goToPage(setDisplay, 'about')}
+        >
+          About
+        </Button>
       </Flex>
       <Flex my={'.5rem'} ml={'auto'} mr={'1rem'} display={['flex', 'none', 'none', 'none']}>
         <IconButton
@@ -88,12 +101,7 @@ export const Navbar = () => {
               size={'lg'}
               minWidth='60vw'
               onClick={() => {
-                if (router.pathname === '/') {
-                  setDisplay('none')
-                } else {
-                  router.push('/')
-                  setDisplay('none')
-                }
+                goToPage(setDisplay)
               }}
             >
               Home
@@ -102,14 +110,7 @@ export const Navbar = () => {
               colorScheme='black'
               size={'lg'}
               minWidth='60vw'
-              onClick={() => {
-                if (router.pathname === '/shopping-cart') {
-                  setDisplay('none')
-                } else {
-                  router.push('/shopping-cart')
-                  setDisplay('none')
-                }
-              }}
+              onClick={() => goToPage(setDisplay, 'shopping-cart')}
             >
               Cart
             </Button>

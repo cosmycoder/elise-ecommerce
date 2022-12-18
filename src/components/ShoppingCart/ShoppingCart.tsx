@@ -1,42 +1,53 @@
 import { Box, Flex, Text, HStack, Link, Stack, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
+import { useCartContext } from '../../../context/cartContext'
 import { CartItem } from './CartItem'
 import { CartOrderSummary } from './CartOrderSummary'
 import { cartData } from './_data'
 
-export const ShoppingCart = () => (
-  <Box
-    maxW={{ base: '3xl', lg: '7xl' }}
-    mx='auto'
-    px={{ base: '4', md: '8', lg: '12' }}
-    py={{ base: '6', md: '8', lg: '12' }}
-  >
-    <Stack
-      direction={{ base: 'column', lg: 'row' }}
-      align={{ lg: 'flex-start' }}
-      spacing={{ base: '8', md: '16' }}
+export const ShoppingCart = () => {
+  const { cart } = useCartContext()
+
+  return (
+    <Box
+      maxW={{ base: '3xl', lg: '7xl' }}
+      mx='auto'
+      px={{ base: '4', md: '8', lg: '12' }}
+      py={{ base: '6', md: '8', lg: '12' }}
     >
-      <Stack spacing={{ base: '8', md: '10' }} flex='2'>
-        <Text fontSize='2xl' fontWeight='extrabold'>
-          Shopping Cart (3 items)
-        </Text>
+      {cart.map((e) => (
+        <h1 key={e.id}>
+          {e.id} - {e.quantity}
+        </h1>
+      ))}
+      <Stack
+        direction={{ base: 'column', lg: 'row' }}
+        align={{ lg: 'flex-start' }}
+        spacing={{ base: '8', md: '16' }}
+      >
+        <Stack spacing={{ base: '8', md: '10' }} flex='2'>
+          <Text fontSize='2xl' fontWeight='extrabold'>
+            Shopping Cart (3 items)
+          </Text>
 
-        <Stack spacing='6'>
-          {cartData.map((item) => (
-            <CartItem key={item.id} {...item} />
-          ))}
+          <Stack spacing='6'>
+            {cartData.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
+            {/* Obviously this won't be the way I display things, this is temporary */}
+          </Stack>
         </Stack>
-      </Stack>
 
-      <Flex direction='column' align='center' flex='1'>
-        <CartOrderSummary />
-        <HStack mt='6' fontWeight='semibold'>
-          <p>or</p>
-          <Link href='/' color={mode('blue.500', 'blue.200')}>
-            Continue shopping
-          </Link>
-        </HStack>
-      </Flex>
-    </Stack>
-  </Box>
-)
+        <Flex direction='column' align='center' flex='1'>
+          <CartOrderSummary />
+          <HStack mt='6' fontWeight='semibold'>
+            <p>or</p>
+            <Link href='/' color={mode('blue.500', 'blue.200')}>
+              Continue shopping
+            </Link>
+          </HStack>
+        </Flex>
+      </Stack>
+    </Box>
+  )
+}
