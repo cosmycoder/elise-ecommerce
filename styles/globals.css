@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'ggsans';
   src: url('/fonts/ggsans-Normal.ttf');
+  font-display: block;
 }
 
 html,
