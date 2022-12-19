@@ -61,6 +61,8 @@ export const Navbar = () => {
           About
         </Button>
       </Flex>
+
+      {/* Mobile Hamburger Menu */}
       <Flex my={'.5rem'} ml={'auto'} mr={'1rem'} display={['flex', 'none', 'none', 'none']}>
         <IconButton
           display={['flex', 'none', 'none', 'none']}
@@ -75,7 +77,7 @@ export const Navbar = () => {
           top={'0'}
           left={'0'}
           pos={'fixed'}
-          bg={`linear-gradient(to bottom, black, #222121)`}
+          bg={`linear-gradient(to top right, white, #b4b4b4)`}
           zIndex={'30'}
           height={'100vh'}
           width={'100vw'}
@@ -97,6 +99,7 @@ export const Navbar = () => {
           />
           <Flex flexDir='column' pr='2rem' pl='2rem' gap={'3rem'} alignItems='center'>
             <Button
+              textShadow='1.5px 1.5px orange'
               colorScheme='black'
               size={'lg'}
               minWidth='60vw'
@@ -107,6 +110,7 @@ export const Navbar = () => {
               Home
             </Button>
             <Button
+              textShadow='1.5px 1.5px orange'
               colorScheme='black'
               size={'lg'}
               minWidth='60vw'
@@ -130,6 +134,7 @@ export const Navbar = () => {
               Checkout
             </Button> */}
             <Button
+              textShadow='1.5px 1.5px orange'
               colorScheme='black'
               size={'lg'}
               minWidth='60vw'
