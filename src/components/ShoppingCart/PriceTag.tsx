@@ -2,7 +2,7 @@ import { HStack, StackProps, Text, TextProps, useColorModeValue as mode } from '
 import * as React from 'react'
 
 interface PriceTagProps {
-  currency: string
+  currency?: string
   price: number
   salePrice?: number
   rootProps?: StackProps
@@ -25,7 +25,7 @@ export function formatPrice(value: number, opts: { locale?: string; currency?: s
 export const PriceTag = (props: PriceTagProps) => {
   const { price, currency, salePrice, rootProps, priceProps, salePriceProps } = props
   return (
-    <HStack spacing="1" {...rootProps}>
+    <HStack spacing='1' {...rootProps}>
       <Price isOnSale={!!salePrice} textProps={priceProps}>
         {formatPrice(price, { currency })}
       </Price>
@@ -49,8 +49,8 @@ const Price = (props: PriceProps) => {
   const color = isOnSale ? onSaleColor : defaultColor
   return (
     <Text
-      as="span"
-      fontWeight="medium"
+      as='span'
+      fontWeight='medium'
       color={color}
       textDecoration={isOnSale ? 'line-through' : 'none'}
       {...textProps}
@@ -61,5 +61,5 @@ const Price = (props: PriceProps) => {
 }
 
 const SalePrice = (props: TextProps) => (
-  <Text as="span" fontWeight="semibold" color={mode('gray.800', 'gray.100')} {...props} />
+  <Text as='span' fontWeight='semibold' color={mode('gray.800', 'gray.100')} {...props} />
 )

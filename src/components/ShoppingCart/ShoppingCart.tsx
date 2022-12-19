@@ -1,13 +1,23 @@
-import { Box, Flex, Text, HStack, Link, Stack, useColorModeValue as mode } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Text,
+  HStack,
+  Link,
+  Stack,
+  useColorModeValue as mode,
+  Button,
+} from '@chakra-ui/react'
 import * as React from 'react'
 import { useCartContext } from '../../../context/cartContext'
+import { goToPageOutsideOfNavbar } from '../../helpers/routeFunction'
+import { useFetchItemsQuery } from '../../hooks/useFetchItemsQuery'
 import { CartItem } from './CartItem'
 import { CartOrderSummary } from './CartOrderSummary'
-import { cartData } from './_data'
 
 export const ShoppingCart = () => {
   const { cart } = useCartContext()
-
+  console.log('cart', cart)
   return (
     <Box
       maxW={{ base: '3xl', lg: '7xl' }}
@@ -15,11 +25,6 @@ export const ShoppingCart = () => {
       px={{ base: '4', md: '8', lg: '12' }}
       py={{ base: '6', md: '8', lg: '12' }}
     >
-      {cart.map((e) => (
-        <h1 key={e.id}>
-          {e.id} - {e.quantity}
-        </h1>
-      ))}
       <Stack
         direction={{ base: 'column', lg: 'row' }}
         align={{ lg: 'flex-start' }}
@@ -27,14 +32,11 @@ export const ShoppingCart = () => {
       >
         <Stack spacing={{ base: '8', md: '10' }} flex='2'>
           <Text fontSize='2xl' fontWeight='extrabold'>
-            Shopping Cart (3 items)
+            Shopping Cart ({cart.length !== 0 ? cart.length - 1 : 0} items)
           </Text>
 
           <Stack spacing='6'>
-            {cartData.map((item) => (
-              <CartItem key={item.id} {...item} />
-            ))}
-            {/* Obviously this won't be the way I display things, this is temporary */}
+            {cart && cart.map((item) => <CartItem key={item.id} {...item} />)}
           </Stack>
         </Stack>
 
@@ -42,9 +44,13 @@ export const ShoppingCart = () => {
           <CartOrderSummary />
           <HStack mt='6' fontWeight='semibold'>
             <p>or</p>
-            <Link href='/' color={mode('blue.500', 'blue.200')}>
+            <Button
+              onClick={() => goToPageOutsideOfNavbar()}
+              variant='link'
+              color={mode('blue.500', 'blue.200')}
+            >
               Continue shopping
-            </Link>
+            </Button>
           </HStack>
         </Flex>
       </Stack>

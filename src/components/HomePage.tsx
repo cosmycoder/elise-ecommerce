@@ -3,22 +3,11 @@ import { Box, Text, Center, useToast, Skeleton, Flex } from '@chakra-ui/react'
 import { ProductCard } from './Product/ProductCard'
 import React from 'react'
 import { Product } from '../types/fakeApiTypes'
+import { useFetchItemsQuery } from '../hooks/useFetchItemsQuery'
 
 function HomePage() {
-  const [products, setProducts] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
-
-  useEffect(() => {
-    // fetching products from the server and update state
-    fetch('https://fakestoreapi.com/products')
-      .then((res) => res.json())
-      .then((products) => setProducts(products))
-      .catch((err) => console.error(err))
-  }, [])
-  // function handleSearch(event: React.FormEvent) {
-  //   event.preventDefault()
-  //   // search for products matching the search term
-  // }
+  // const [searchTerm, setSearchTerm] = useState('')
+  const { data: products, isFetching } = useFetchItemsQuery()
 
   // function handleAddToCart(productId: string) {
   //   // add the product to the cart and show a toast message
@@ -51,9 +40,8 @@ function HomePage() {
         justifyContent={'center'}
         flexGrow='100%'
       >
-        {products.map((product: Product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {products &&
+          products.map((product: Product) => <ProductCard key={product.id} product={product} />)}
       </Flex>
     </Box>
   )

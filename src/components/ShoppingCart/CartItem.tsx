@@ -2,88 +2,77 @@ import { CloseButton, Flex, Link, Select, SelectProps, useColorModeValue } from 
 import * as React from 'react'
 import { PriceTag } from './PriceTag'
 import { CartProductMeta } from './CartProductMeta'
-
-type CartItemProps = {
-  isGiftWrapping?: boolean
-  name: string
-  description: string
-  quantity: number
-  price: number
-  currency: string
-  imageUrl: string
-  onChangeQuantity?: (quantity: number) => void
-  onClickGiftWrapping?: () => void
-  onClickDelete?: () => void
-}
+import { useFetchItemsQuery } from '../../hooks/useFetchItemsQuery'
+import { CartItem as CartItemProps } from '../../types/cart'
+import { useCartContext } from '../../../context/cartContext'
+import { optionRange } from '../../values/optionRange'
 
 const QuantitySelect = (props: SelectProps) => {
   return (
     <Select
-      maxW="64px"
-      aria-label="Select quantity"
+      maxW='74px'
+      aria-label='Select quantity'
       focusBorderColor={useColorModeValue('blue.500', 'blue.200')}
       {...props}
     >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
+      {optionRange.map((e) => (
+        <option value={e} key={e}>
+          {e}
+        </option>
+      ))}
     </Select>
   )
 }
 
 export const CartItem = (props: CartItemProps) => {
-  const {
-    isGiftWrapping,
-    name,
-    description,
-    quantity,
-    imageUrl,
-    currency,
-    price,
-    onChangeQuantity,
-    onClickDelete,
-  } = props
+  const { data } = useFetchItemsQuery()
+  const { removeFromCart } = useCartContext()
+  const { setItemQuantity } = useCartContext()
+
+  if (!data) return <></>
+
+  const { id, quantity } = props
+  if (id === 0) return <></> // This is the default value in the cart, doesn't represent an item.
+
+  let currentItem = data[id - 1]
 
   return (
-    <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
+    <Flex direction={{ base: 'column', md: 'row' }} justify='space-between' align='center'>
       <CartProductMeta
-        name={name}
-        description={description}
-        image={imageUrl}
-        isGiftWrapping={isGiftWrapping}
+        name={currentItem.title}
+        image={currentItem.image}
+        // isGiftWrapping={isGiftWrapping}
       />
 
       {/* Desktop */}
-      <Flex width="full" justify="space-between" display={{ base: 'none', md: 'flex' }}>
+      <Flex width='full' justify='space-between' display={{ base: 'none', md: 'flex' }}>
         <QuantitySelect
           value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value)
-          }}
+          onChange={(e) => setItemQuantity(id, Number(e.target.value))}
         />
-        <PriceTag price={price} currency={currency} />
-        <CloseButton aria-label={`Delete ${name} from cart`} onClick={onClickDelete} />
+        <PriceTag price={currentItem.price} />
+        <CloseButton
+          aria-label={`Delete ${currentItem.title} from cart`}
+          onClick={(e) => removeFromCart(id, quantity)}
+        />
       </Flex>
 
       {/* Mobile */}
       <Flex
-        mt="4"
-        align="center"
-        width="full"
-        justify="space-between"
+        mt='4'
+        align='center'
+        width='full'
+        justify='space-between'
         display={{ base: 'flex', md: 'none' }}
       >
-        <Link fontSize="sm" textDecor="underline">
+        <Link fontSize='sm' textDecor='underline' onClick={(e) => removeFromCart(id, quantity)}>
           Delete
         </Link>
         <QuantitySelect
           value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value)
-          }}
+          onChange={(e) => setItemQuantity(id, Number(e.target.value))}
         />
-        <PriceTag price={price} currency={currency} />
+        <PriceTag price={currentItem.price} />
       </Flex>
     </Flex>
   )

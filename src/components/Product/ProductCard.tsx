@@ -28,7 +28,7 @@ interface Props {
 export const ProductCard = (props: Props) => {
   const { product, rootProps } = props
   const { title, image, price, rating } = product
-  const { cart, addToCart } = useCartContext()
+  const { addToCart } = useCartContext()
 
   return (
     <Flex

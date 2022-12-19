@@ -100,7 +100,7 @@ export const Checkout = () => {
             </Text>
           </Box>
 
-          {/* Todo: will map over the products in the cart and display each one in a separate row */}
+          {/* TODO: will map over the products in the cart and display each one in a separate row */}
 
           {cart.map((product) => (
             <Box key={product.id} display='flex' alignItems='center' mb={4}>

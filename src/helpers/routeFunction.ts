@@ -15,3 +15,12 @@ export const goToPage = (
     setDisplay('none')
   }
 }
+
+export const goToPageOutsideOfNavbar = (page?: string) => {
+  if (!page) {
+    router.push('/')
+  } else if (router.pathname === `/${page}`) {
+  } else {
+    router.push(`/${page}`)
+  }
+}

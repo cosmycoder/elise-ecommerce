@@ -4,7 +4,7 @@ import { faShop } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { goToPage } from '../helpers/routeFunctions'
+import { goToPage } from '../helpers/routeFunction'
 
 export const Navbar = () => {
   const [display, setDisplay] = useState('none')
@@ -44,14 +44,14 @@ export const Navbar = () => {
         >
           Cart
         </Button>
-        <Button
+        {/* <Button
           color='black'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay, 'checkout')}
         >
           Checkout
-        </Button>
+        </Button> */}
         <Button
           color='black'
           fontWeight={'1000'}
@@ -114,7 +114,7 @@ export const Navbar = () => {
             >
               Cart
             </Button>
-            <Button
+            {/* <Button
               colorScheme='black'
               size={'lg'}
               minWidth='60vw'
@@ -128,7 +128,7 @@ export const Navbar = () => {
               }}
             >
               Checkout
-            </Button>
+            </Button> */}
             <Button
               colorScheme='black'
               size={'lg'}

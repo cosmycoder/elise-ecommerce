@@ -1,6 +1,11 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import { Button, Flex, Icon, Link, Stack, Text, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
+import { useCartContext } from '../../../context/cartContext'
+import { goToPageOutsideOfNavbar } from '../../helpers/routeFunction'
+import { useFetchItemsQuery } from '../../hooks/useFetchItemsQuery'
+import { CartItem } from '../../types/cart'
+import { Product } from '../../types/fakeApiTypes'
 import { formatPrice } from './PriceTag'
 
 type OrderSummaryItemProps = {
@@ -22,6 +27,8 @@ const OrderSummaryItem = (props: OrderSummaryItemProps) => {
 }
 
 export const CartOrderSummary = () => {
+  const { calculateSubTotal } = useCartContext()
+
   return (
     <Stack spacing='8' borderWidth='1px' rounded='lg' padding='8' width='full'>
       <Text fontSize='2xl' fontWeight={'bold'}>
@@ -29,7 +36,7 @@ export const CartOrderSummary = () => {
       </Text>
 
       <Stack spacing='6'>
-        <OrderSummaryItem label='Subtotal' value={formatPrice(597)} />
+        <OrderSummaryItem label='Subtotal' value={formatPrice(calculateSubTotal())} />
         <OrderSummaryItem label='Shipping + Tax'>
           <Link href='#' textDecor='underline'>
             Calculate shipping
@@ -45,15 +52,19 @@ export const CartOrderSummary = () => {
             Total
           </Text>
           <Text fontSize='xl' fontWeight='extrabold'>
-            {formatPrice(597)}
+            {formatPrice(calculateSubTotal())}
           </Text>
         </Flex>
       </Stack>
-      <Link href='/checkout'>
-        <Button colorScheme='blue' w='100%' size='lg' fontSize='md'>
-          Checkout
-        </Button>
-      </Link>
+      <Button
+        colorScheme='blue'
+        w='100%'
+        size='lg'
+        fontSize='md'
+        // onClick={() => goToPageOutsideOfNavbar('checkout')} TODO: this is commented until I properly implement Checkout page.
+      >
+        Checkout
+      </Button>
     </Stack>
   )
 }
