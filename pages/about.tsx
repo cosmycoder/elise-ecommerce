@@ -25,7 +25,7 @@ export default function Index() {
         >
           <Icon
             icon={faShop}
-            color='#6495ED'
+            color='darkorange'
             w={['3rem', '10rem', '20rem']}
             h={['2rem', '3rem', '4rem']}
             mb='1rem'
@@ -33,7 +33,7 @@ export default function Index() {
           />
           <Stack w='75%' mx='auto'>
             <Text fontSize={['xl', '2xl', '3xl']} fontWeight='600' textAlign={'center'}>
-              <Text color={'cornflowerblue'} as='span' fontWeight={'800'}>
+              <Text color={'orange'} as='span' fontWeight={'800'}>
                 At Elise
               </Text>
               , our goal is to provide our customers with the best online shopping experience

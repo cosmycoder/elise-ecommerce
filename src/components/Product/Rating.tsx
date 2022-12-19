@@ -12,7 +12,7 @@ interface Props {
 export const Rating = (props: Props) => {
   const { defaultValue = 0, max = 5, size = 'md', rootProps } = props
   const color = useColorModeValue('gray.200', 'gray.600')
-  const activeColor = useColorModeValue('blue.500', 'blue.200')
+  const activeColor = useColorModeValue('orange.300', 'orange.200')
   return (
     <HStack spacing='0.5' {...rootProps}>
       {Array.from({ length: max })

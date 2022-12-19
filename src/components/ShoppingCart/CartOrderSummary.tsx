@@ -57,7 +57,7 @@ export const CartOrderSummary = () => {
         </Flex>
       </Stack>
       <Button
-        colorScheme='blue'
+        colorScheme='orange'
         w='100%'
         size='lg'
         fontSize='md'

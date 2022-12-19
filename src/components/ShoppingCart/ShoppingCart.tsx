@@ -44,11 +44,7 @@ export const ShoppingCart = () => {
           <CartOrderSummary />
           <HStack mt='6' fontWeight='semibold'>
             <p>or</p>
-            <Button
-              onClick={() => goToPageOutsideOfNavbar()}
-              variant='link'
-              color={mode('blue.500', 'blue.200')}
-            >
+            <Button onClick={() => goToPageOutsideOfNavbar()} variant='link' color={'orange'}>
               Continue shopping
             </Button>
           </HStack>

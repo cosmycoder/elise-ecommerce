@@ -16,7 +16,9 @@ export default function Layout({ children }: any) {
         textAlign={'center'}
         py={4}
       >
-        <Text fontWeight={'600'}>Elise - 2022</Text>
+        <Text fontWeight={'600'} color='black'>
+          Elise - 2022
+        </Text>
       </Box>
     </Flex>
   )

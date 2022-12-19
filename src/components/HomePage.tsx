@@ -23,12 +23,15 @@ function HomePage() {
   return (
     <Box bg='white' rounded={'xl'} minH='85vh'>
       <Center pt='1.5rem' mb='5rem'>
-        <Text fontSize='3xl' textAlign={'center'}>
-          Welcome to
-          <Text color='cornflowerblue' as='span' fontWeight={'extrabold'}>
-            &nbsp;Elise
-          </Text>
-          , your one stop shop!
+        <Text
+          fontSize='3xl'
+          textAlign={'center'}
+          bgGradient={'linear(to-tl, #8A2387,#E94057,darkorange)'}
+          bgClip={'text'}
+          fontFamily='ggsansmedium'
+          fontWeight='bold'
+        >
+          Your one stop shop.
         </Text>
       </Center>
 

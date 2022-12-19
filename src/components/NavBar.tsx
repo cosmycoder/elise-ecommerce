@@ -14,8 +14,8 @@ export const Navbar = () => {
   return (
     <Flex as='nav' align='center' justify='space-between' wrap='wrap'>
       <Flex flexDir={'row'} justifyContent='center' align={'center'}>
-        <Icon icon={faShop} color='#6495ED' size='2x' />
-        <Text fontSize={'4xl'} fontWeight='bold' color='#6495ED' ml='1rem'>
+        <Icon icon={faShop} color='darkorange' size='2x' />
+        <Text fontSize={'4xl'} fontFamily='ggsansmedium' color='darkorange' ml='1rem'>
           Elise
         </Text>
       </Flex>
@@ -29,7 +29,8 @@ export const Navbar = () => {
         alignItems={'center'}
       >
         <Button
-          color='black'
+          textShadow='2px 2px orange'
+          color='white'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay)}
@@ -37,7 +38,8 @@ export const Navbar = () => {
           Home
         </Button>
         <Button
-          color='black'
+          textShadow='2px 2px orange'
+          color='white'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay, 'shopping-cart')}
@@ -45,7 +47,7 @@ export const Navbar = () => {
           Cart
         </Button>
         {/* <Button
-          color='black'
+          color='white'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay, 'checkout')}
@@ -53,7 +55,8 @@ export const Navbar = () => {
           Checkout
         </Button> */}
         <Button
-          color='black'
+          textShadow='2px 2px orange'
+          color='white'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay, 'about')}
@@ -69,7 +72,7 @@ export const Navbar = () => {
           size={'md'}
           aria-label='Open Menu'
           alignSelf={'center'}
-          icon={<HamburgerIcon color={'black'} />}
+          icon={<HamburgerIcon color={'darkorange'} fontSize='3xl' />}
           colorScheme='black'
           onClick={() => setDisplay('flex')}
         />
@@ -94,13 +97,14 @@ export const Navbar = () => {
             size={'md'}
             width={'1rem'}
             aria-label='Close Icon'
-            icon={<CloseIcon color={'white'} />}
+            icon={<CloseIcon color={'white'} fontSize='xl' />}
             onClick={() => setDisplay('none')}
           />
           <Flex flexDir='column' pr='2rem' pl='2rem' gap={'3rem'} alignItems='center'>
             <Button
-              textShadow='1.5px 1.5px orange'
+              textShadow='2.5px 2.5px orange'
               colorScheme='black'
+              outlineColor='darkorange'
               size={'lg'}
               minWidth='60vw'
               onClick={() => {
@@ -110,8 +114,9 @@ export const Navbar = () => {
               Home
             </Button>
             <Button
-              textShadow='1.5px 1.5px orange'
+              textShadow='2.5px 2.5px orange'
               colorScheme='black'
+              outlineColor='darkorange'
               size={'lg'}
               minWidth='60vw'
               onClick={() => goToPage(setDisplay, 'shopping-cart')}
@@ -134,8 +139,9 @@ export const Navbar = () => {
               Checkout
             </Button> */}
             <Button
-              textShadow='1.5px 1.5px orange'
+              textShadow='2.5px 2.5px orange'
               colorScheme='black'
+              outlineColor='darkorange'
               size={'lg'}
               minWidth='60vw'
               onClick={() => {

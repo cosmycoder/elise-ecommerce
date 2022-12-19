@@ -47,8 +47,8 @@ export const ScrollToTop = () => {
       {showTopBtn && (
         <IconButton
           aria-label='scroll to top'
-          bgColor={'#6495ED'}
-          icon={<ArrowUpIcon />}
+          bgColor={'darkorange'}
+          icon={<ArrowUpIcon color='white' fontSize={'xl'} />}
           size='lg'
           position='fixed'
           bottom='2rem'

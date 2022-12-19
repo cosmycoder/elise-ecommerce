@@ -7,6 +7,7 @@ import {
   Link,
   Stack,
   Text,
+  Tooltip,
   useColorModeValue as mode,
 } from '@chakra-ui/react'
 import * as React from 'react'
@@ -26,8 +27,8 @@ export const CartProductMeta = (props: CartProductMetaProps) => {
     <Stack direction='row' spacing='5' width='full'>
       <Image
         rounded='lg'
-        minW='120px'
-        maxW='120px'
+        minW={['80px', '120px']}
+        maxW={['80px', '120px']}
         h='120px'
         objectFit='contain'
         src={image}
@@ -37,7 +38,11 @@ export const CartProductMeta = (props: CartProductMetaProps) => {
       />
       <Box pt='4'>
         <Stack spacing='0.5'>
-          <Text fontWeight='medium'>{name}</Text>
+          <Tooltip hasArrow label={name} placement='bottom'>
+            <Text fontWeight='medium' noOfLines={2}>
+              {name}
+            </Text>
+          </Tooltip>
         </Stack>
         {isGiftWrapping && (
           <HStack spacing='1' mt='3' color={mode('gray.600', 'gray.400')}>

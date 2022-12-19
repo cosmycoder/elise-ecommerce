@@ -4,11 +4,17 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'ggsansmedium';
+  src: url('/fonts/ggsans-Medium.ttf');
+  font-display: block;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'ggsans';
+  font-family: 'ggsansmedium';
   background-color: black;
 }
 
@@ -19,7 +25,7 @@ a {
 
 * {
   box-sizing: border-box;
-  font-family: 'ggsans';
+  font-family: 'ggsansmedium';
 }
 
 @media (prefers-color-scheme: dark) {

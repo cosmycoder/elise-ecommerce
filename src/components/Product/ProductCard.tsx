@@ -78,13 +78,17 @@ export const ProductCard = (props: Props) => {
       <Stack>
         <HStack>
           <Rating defaultValue={rating.rate} size='sm' />
-          <Text fontSize='sm' color={useColorModeValue('gray.600', 'gray.400')}>
+          <Text
+            fontSize='sm'
+            fontWeight={'normal'}
+            color={useColorModeValue('gray.600', 'gray.400')}
+          >
             {rating.count} Reviews
           </Text>
         </HStack>
       </Stack>
       <Stack align='center' mt='.5rem'>
-        <Button colorScheme={'facebook'} width='full' onClick={() => addToCart(product.id, 1)}>
+        <Button colorScheme={'orange'} width='full' onClick={() => addToCart(product.id, 1)}>
           Add to cart
         </Button>
         <Link
