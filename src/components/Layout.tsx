@@ -3,22 +3,21 @@ import { Navbar } from './NavBar'
 
 export default function Layout({ children }: any) {
   return (
-    <Flex direction='column' minH='100vh' bg='gray.50'>
-      <Box as='header' bg='linear-gradient(to top, transparent, gray)' color='white' p='4'>
+    <Flex direction='column' h='auto' minH='100vh' bg='gray.50'>
+      <Box as='header' bg='linear-gradient(to top, transparent, #d1d1d1)' color='white' p='4'>
         <Navbar />
       </Box>
-      <Box w='100%' flex='1' as='main' p='4'>
+      <Box rounded='xl' flex='auto' as='main' p='4' m='4' bgColor='white' shadow={'2xl'}>
         {children}
       </Box>
-      <Flex
+      <Box
         as='footer'
-        bg='linear-gradient(to bottom, transparent, gray)'
-        align='center'
-        justify='center'
+        bg='linear-gradient(to bottom, transparent, #d1d1d1)'
+        textAlign={'center'}
         py={4}
       >
         <Text fontWeight={'600'}>Elise - 2022</Text>
-      </Flex>
+      </Box>
     </Flex>
   )
 }

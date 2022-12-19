@@ -9,11 +9,20 @@ export default function Index() {
 
   return (
     <Flex direction='column' minH='100vh' bg='gray.50'>
-      <Box as='header' bg='linear-gradient(to top, transparent, gray)' color='white' p='4'>
+      <Box as='header' bg='linear-gradient(to top, transparent, #d1d1d1)' color='white' p='4'>
         <Navbar />
       </Box>
-      <Flex my='auto'>
-        <Flex justifyContent='center' flexDir={'column'}>
+      <Flex flex='auto'>
+        <Flex
+          rounded={'xl'}
+          flex='auto'
+          justifyContent={'center'}
+          flexDir={'column'}
+          p='4'
+          m='4'
+          bgColor='white'
+          shadow={'2xl'}
+        >
           <Icon
             icon={faShop}
             color='#6495ED'
@@ -43,21 +52,17 @@ export default function Index() {
               we look forward to continuing to provide you with the best possible online shopping
               experience.
             </Text>
-            <Text textAlign={'center'} fontWeight='900' my='auto'>
-              ☯
-            </Text>
           </Stack>
         </Flex>
       </Flex>
-      <Flex
+      <Box
         as='footer'
-        bg='linear-gradient(to bottom, transparent, gray)'
-        align='center'
-        justify='center'
+        bg='linear-gradient(to bottom, transparent, #d1d1d1)'
+        textAlign={'center'}
         py={4}
       >
         <Text fontWeight={'600'}>Elise - 2022</Text>
-      </Flex>
+      </Box>
       <ScrollToTop />
     </Flex>
   )
