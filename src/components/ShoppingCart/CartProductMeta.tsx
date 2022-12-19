@@ -26,13 +26,14 @@ export const CartProductMeta = (props: CartProductMetaProps) => {
     <Stack direction='row' spacing='5' width='full'>
       <Image
         rounded='lg'
-        width='120px'
-        height='120px'
-        fit='contain'
+        minW='120px'
+        maxW='120px'
+        h='120px'
+        objectFit='contain'
         src={image}
         alt={name}
         draggable='false'
-        loading='lazy'
+        loading='eager'
       />
       <Box pt='4'>
         <Stack spacing='0.5'>

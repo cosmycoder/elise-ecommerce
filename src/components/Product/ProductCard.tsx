@@ -50,6 +50,7 @@ export const ProductCard = (props: Props) => {
             src={image}
             alt={title}
             draggable='false'
+            loading='eager'
             fallback={<Skeleton w='18rem' h='12rem' />}
             borderRadius={useBreakpointValue({ base: 'md', md: 'xl' })}
           />
