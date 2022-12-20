@@ -14,7 +14,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'ggsansmedium';
+  font-family: 'ggsansmedium', '-apple-system', 'sans-serif';
   background-color: black;
 }
 
@@ -25,7 +25,7 @@ a {
 
 * {
   box-sizing: border-box;
-  font-family: 'ggsansmedium';
+  font-family: 'ggsansmedium', '-apple-system', 'sans-serif';
   -webkit-font-smoothing: antialiased;
 }
 
