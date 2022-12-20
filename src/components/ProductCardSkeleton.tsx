@@ -78,7 +78,7 @@ export const ProductCardSkeleton = () => {
         <Stack spacing='1' my='auto'>
           <SkeletonText pl='1rem' w='full' fontWeight='medium' noOfLines={[2]} />
         </Stack>
-        <Skeleton w='80%' h='40px' rounded='xl' mx='auto' />
+        <Skeleton w='100%' h='40px' rounded='xl' mx='auto' />
       </Flex>
     </>
   )
