@@ -1,29 +1,38 @@
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
-import { Button, Flex, Text, Link, Stack, Icon, chakra, HStack, IconButton } from '@chakra-ui/react'
-import { faShop } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button, Flex, IconButton } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { BsShop } from 'react-icons/bs'
 import { goToPage } from '../helpers/routeFunction'
 
 export const Navbar = () => {
   const [display, setDisplay] = useState('none')
   const router = useRouter()
-  const Icon = chakra(FontAwesomeIcon)
 
   return (
     <Flex as='nav' align='center' justify='space-between' wrap='wrap' h='7.5vh'>
       <Flex flexDir={'row'} justifyContent='center' align={'center'}>
-        <Icon icon={faShop} color='darkorange' size='2x' />
-        <Text
+        <IconButton
+          variant={'link'}
+          as={BsShop}
+          color='darkorange'
+          fontSize='2xl'
+          onClick={() => goToPage(setDisplay)}
+          aria-label={''}
+          _hover={{ cursor: 'pointer' }}
+        />
+        <Button
           fontSize={'4xl'}
+          pb='3rem'
           fontFamily='ggsansmedium'
           fontWeight={'bold'}
           color='darkorange'
           ml='1rem'
+          variant={'unstyled'}
+          onClick={() => goToPage(setDisplay)}
         >
           Elise
-        </Text>
+        </Button>
       </Flex>
 
       <Flex

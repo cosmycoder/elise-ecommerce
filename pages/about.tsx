@@ -1,12 +1,10 @@
-import { Flex, Text, Stack, chakra, Box } from '@chakra-ui/react'
-import { faShop } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Flex, Text, Stack, Box, IconButton } from '@chakra-ui/react'
 import { Navbar } from '../src/components/NavBar'
 import { ScrollToTop } from '../src/components/ScrollToTop'
+import { BsShop } from 'react-icons/bs'
+import { goToPageOutsideOfNavbar } from '../src/helpers/routeFunction'
 
 export default function Index() {
-  const Icon = chakra(FontAwesomeIcon)
-
   return (
     <Flex direction='column' minH='100vh' bg='gray.50'>
       <Box as='header' bg='linear-gradient(to top, transparent, #d1d1d1)' color='white' p='4'>
@@ -23,13 +21,17 @@ export default function Index() {
           bgColor='white'
           shadow={'2xl'}
         >
-          <Icon
-            icon={faShop}
+          <IconButton
+            as={BsShop}
+            aria-label='shop icon/button that takes you to homepage'
             color='darkorange'
             w={['3rem', '10rem', '20rem']}
             h={['2rem', '3rem', '4rem']}
             mb='1rem'
             mx='auto'
+            variant={'link'}
+            onClick={() => goToPageOutsideOfNavbar()}
+            _hover={{ cursor: 'pointer' }}
           />
           <Stack w='75%' mx='auto'>
             <Text fontSize={['xl', '2xl', '3xl']} fontWeight='600' textAlign={'center'}>
