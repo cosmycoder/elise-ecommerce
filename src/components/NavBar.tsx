@@ -2,10 +2,10 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { Button, Flex, IconButton } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { BsShop } from 'react-icons/bs'
 import { useCartContext } from '../../context/cartContext'
 import { goToPage } from '../helpers/routeFunction'
 import { CartIcon } from './CartIcon'
+import { StyledBsShop } from './StyledBsShop'
 
 export const Navbar = () => {
   const [display, setDisplay] = useState('none')
@@ -17,7 +17,7 @@ export const Navbar = () => {
       <Flex flexDir={'row'} justifyContent='center' align={'center'}>
         <IconButton
           variant={'link'}
-          as={BsShop}
+          as={StyledBsShop}
           color='darkorange'
           fontSize='2xl'
           onClick={() => goToPage(setDisplay)}

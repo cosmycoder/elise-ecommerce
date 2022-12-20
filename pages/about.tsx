@@ -1,8 +1,8 @@
 import { Flex, Text, Stack, Box, IconButton } from '@chakra-ui/react'
 import { Navbar } from '../src/components/NavBar'
 import { ScrollToTop } from '../src/components/ScrollToTop'
-import { BsShop } from 'react-icons/bs'
 import { goToPageOutsideOfNavbar } from '../src/helpers/routeFunction'
+import { StyledBsShop } from '../src/components/StyledBsShop'
 
 export default function Index() {
   return (
@@ -22,7 +22,7 @@ export default function Index() {
           shadow={'2xl'}
         >
           <IconButton
-            as={BsShop}
+            as={StyledBsShop}
             aria-label='shop icon/button that takes you to homepage'
             color='darkorange'
             w={['3rem', '10rem', '20rem']}
