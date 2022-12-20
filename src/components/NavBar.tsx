@@ -3,10 +3,13 @@ import { Button, Flex, IconButton } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { BsShop } from 'react-icons/bs'
+import { useCartContext } from '../../context/cartContext'
 import { goToPage } from '../helpers/routeFunction'
+import { CartIcon } from './CartIcon'
 
 export const Navbar = () => {
   const [display, setDisplay] = useState('none')
+  const { cart } = useCartContext()
   const router = useRouter()
 
   return (
@@ -44,25 +47,29 @@ export const Navbar = () => {
         alignItems={'center'}
       >
         <Button
-          textShadow='2px 2px orange'
-          color='white'
+          textShadow='.5px .5px orange'
+          color='#E94057'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay)}
         >
           Home
         </Button>
-        <Button
-          textShadow='2px 2px orange'
-          color='white'
-          fontWeight={'1000'}
-          variant='link'
-          onClick={() => goToPage(setDisplay, 'shopping-cart')}
-        >
-          Cart
-        </Button>
+        {cart.length - 1 > 0 ? (
+          <CartIcon />
+        ) : (
+          <Button
+            textShadow='.5px .5px orange'
+            color='#E94057'
+            fontWeight={'1000'}
+            variant='link'
+            onClick={() => goToPage(setDisplay, 'shopping-cart')}
+          >
+            Cart
+          </Button>
+        )}
         {/* <Button
-          color='white'
+          color='#E94057'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay, 'checkout')}
@@ -70,8 +77,8 @@ export const Navbar = () => {
           Checkout
         </Button> */}
         <Button
-          textShadow='2px 2px orange'
-          color='white'
+          textShadow='.5px .5px orange'
+          color='#E94057'
           fontWeight={'1000'}
           variant='link'
           onClick={() => goToPage(setDisplay, 'about')}
@@ -82,6 +89,9 @@ export const Navbar = () => {
 
       {/* Mobile Hamburger Menu */}
       <Flex my={'.5rem'} ml={'auto'} mr={'1rem'} display={['flex', 'none', 'none', 'none']}>
+        {/* Cart shows up if not empty */}
+        {cart.length - 1 > 0 && <CartIcon pr='1rem' />}
+
         <IconButton
           display={['flex', 'none', 'none', 'none']}
           size={'md'}
@@ -138,6 +148,7 @@ export const Navbar = () => {
             >
               Cart
             </Button>
+
             {/* <Button
               colorScheme='black'
               size={'lg'}

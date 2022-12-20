@@ -1,28 +1,15 @@
-import { Box, Text, Flex, chakra, Icon, StatDownArrow } from '@chakra-ui/react'
+import { Box, Text, Flex, chakra, StatDownArrow } from '@chakra-ui/react'
 import { ProductCard } from './Product/ProductCard'
 import React from 'react'
 import { Product } from '../types/fakeApiTypes'
 import { useFetchItemsQuery } from '../hooks/useFetchItemsQuery'
 import { isValidMotionProp, motion } from 'framer-motion'
-import { ArrowDownIcon } from '@chakra-ui/icons'
 
 function HomePage() {
-  // const [searchTerm, setSearchTerm] = useState('')
   const { data: products } = useFetchItemsQuery()
   const ChakraBox = chakra(motion.div, {
     shouldForwardProp: isValidMotionProp,
   })
-
-  // function handleAddToCart(productId: string) {
-  //   // add the product to the cart and show a toast message
-  //   toast({
-  //     title: 'Product Added to Cart',
-  //     description: 'The product has been added to your shopping cart.',
-  //     status: 'success',
-  //     duration: 3000,
-  //     isClosable: true,
-  //   })
-  // }
 
   return (
     <Box bg='white' rounded={'xl'} minH='85vh'>

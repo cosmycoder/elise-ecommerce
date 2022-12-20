@@ -88,7 +88,13 @@ export const ProductCard = (props: Props) => {
         </HStack>
       </Stack>
       <Stack align='center' mt='.5rem'>
-        <Button colorScheme={'orange'} width='full' onClick={() => addToCart(product.id, 1)}>
+        <Button
+          colorScheme={'orange'}
+          width='full'
+          onClick={() => {
+            addToCart(product.id, 1)
+          }}
+        >
           Add to cart
         </Button>
         <Link
