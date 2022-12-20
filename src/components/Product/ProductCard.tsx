@@ -19,6 +19,7 @@ import { FavouriteButton } from './FavouriteButton'
 import { PriceTag } from './PriceTag'
 import { Product } from '../../types/fakeApiTypes'
 import { useCartContext } from '../../../context/cartContext'
+import { goToPageOutsideOfNavbar } from '../../helpers/routeFunction'
 
 interface Props {
   product: Product
@@ -97,13 +98,18 @@ export const ProductCard = (props: Props) => {
         >
           Add to cart
         </Button>
-        <Link
+        <Button
           textDecoration='underline'
           fontWeight='medium'
           color={useColorModeValue('gray.600', 'gray.400')}
+          variant='link'
+          onClick={() => {
+            addToCart(product.id, 1)
+            goToPageOutsideOfNavbar('shopping-cart')
+          }}
         >
           Quick shop
-        </Link>
+        </Button>
       </Stack>
     </Flex>
   )
