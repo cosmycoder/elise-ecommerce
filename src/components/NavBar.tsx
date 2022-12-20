@@ -12,10 +12,16 @@ export const Navbar = () => {
   const Icon = chakra(FontAwesomeIcon)
 
   return (
-    <Flex as='nav' align='center' justify='space-between' wrap='wrap'>
+    <Flex as='nav' align='center' justify='space-between' wrap='wrap' h='7.5vh'>
       <Flex flexDir={'row'} justifyContent='center' align={'center'}>
         <Icon icon={faShop} color='darkorange' size='2x' />
-        <Text fontSize={'4xl'} fontFamily='ggsansmedium' color='darkorange' ml='1rem'>
+        <Text
+          fontSize={'4xl'}
+          fontFamily='ggsansmedium'
+          fontWeight={'bold'}
+          color='darkorange'
+          ml='1rem'
+        >
           Elise
         </Text>
       </Flex>
