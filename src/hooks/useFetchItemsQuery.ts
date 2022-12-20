@@ -10,5 +10,8 @@ export const useFetchItemsQuery = () => {
     return response.data
   }
 
-  return useQuery(['fetchItems'], fetchAllItems, { refetchOnWindowFocus: false })
+  return useQuery(['fetchItems'], fetchAllItems, {
+    refetchOnWindowFocus: false,
+    staleTime: Infinity,
+  })
 }

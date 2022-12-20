@@ -1,17 +1,7 @@
-import {
-  Box,
-  Flex,
-  Text,
-  HStack,
-  Link,
-  Stack,
-  useColorModeValue as mode,
-  Button,
-} from '@chakra-ui/react'
+import { Box, Flex, Text, HStack, Stack, useColorModeValue as mode, Button } from '@chakra-ui/react'
 import * as React from 'react'
 import { useCartContext } from '../../../context/cartContext'
 import { goToPageOutsideOfNavbar } from '../../helpers/routeFunction'
-import { useFetchItemsQuery } from '../../hooks/useFetchItemsQuery'
 import { CartItem } from './CartItem'
 import { CartOrderSummary } from './CartOrderSummary'
 

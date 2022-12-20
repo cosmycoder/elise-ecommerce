@@ -78,8 +78,23 @@ function HomePage() {
         justifyContent={'center'}
         flexGrow='100%'
       >
-        {products &&
-          products.map((product: Product) => <ProductCard key={product.id} product={product} />)}
+        {products ? (
+          products.map((product: Product) => <ProductCard key={product.id} product={product} />)
+        ) : (
+          <Flex justify={'center'} align='center' className='testFlex' h='100vh'>
+            <Text
+              as='span'
+              fontSize='5xl'
+              fontFamily='ggsansmedium'
+              fontWeight='bold'
+              bgGradient={'linear(to-tl, #8A2387,#E94057,darkorange)'}
+              bgClip={'text'}
+              zIndex='2'
+            >
+              Our premium products are loading!
+            </Text>
+          </Flex>
+        )}
       </Flex>
     </Box>
   )

@@ -1,4 +1,14 @@
-import { CloseButton, Flex, Link, Select, SelectProps, useColorModeValue } from '@chakra-ui/react'
+import {
+  CloseButton,
+  Flex,
+  Link,
+  Select,
+  SelectProps,
+  useColorModeValue,
+  Skeleton,
+  SkeletonText,
+  SkeletonCircle,
+} from '@chakra-ui/react'
 import * as React from 'react'
 import { PriceTag } from './PriceTag'
 import { CartProductMeta } from './CartProductMeta'
@@ -6,6 +16,7 @@ import { useFetchItemsQuery } from '../../hooks/useFetchItemsQuery'
 import { CartItem as CartItemProps } from '../../types/cart'
 import { useCartContext } from '../../../context/cartContext'
 import { optionRange } from '../../values/optionRange'
+import { Product } from '../../types/fakeApiTypes'
 
 const QuantitySelect = (props: SelectProps) => {
   return (
@@ -27,11 +38,29 @@ const QuantitySelect = (props: SelectProps) => {
 }
 
 export const CartItem = (props: CartItemProps) => {
-  const { data } = useFetchItemsQuery()
-  const { removeFromCart } = useCartContext()
-  const { setItemQuantity } = useCartContext()
+  // There isn't any decent way to handle error type of useQuery as far as I've searched so I'm calling any.
+  const { data, isError, error }: { data: Product[] | undefined; isError: boolean; error: any } =
+    useFetchItemsQuery()
+  const { removeFromCart, setItemQuantity } = useCartContext()
 
-  if (!data) return <></>
+  if (!data) {
+    return (
+      <Flex flexDir={'row'}>
+        <Skeleton h='120px' minW={['80px', '120px']} maxW={['80px', '120px']}></Skeleton>
+        <Flex flexDir={'column'} w='100%'>
+          <SkeletonText pl='1rem' w='full' />
+          <Flex flexDir={'row'} mt='10px'>
+            <Skeleton w='60px' h='40px' mx='auto' />
+            <Skeleton w='40px' h='40px' />
+          </Flex>
+        </Flex>
+      </Flex>
+    )
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>
+  }
 
   const { id, quantity } = props
   if (id === 0) return <></> // This is the default value in the cart, doesn't represent an item.
