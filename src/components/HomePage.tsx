@@ -71,7 +71,6 @@ function HomePage() {
             bgClip={'text'}
             zIndex='2'
           >
-            {' '}
             Your one stop shop
           </Text>
           <Text as='span' color='black' zIndex='2' fontSize={'5xl'}>
@@ -109,30 +108,10 @@ function HomePage() {
         <StatDownArrow color={'#E94057'} zIndex='2' fontWeight={'bold'} fontSize='6xl' mt='3rem' />
       </Flex>
 
-      <Flex
-        className='productsContainer'
-        maxW='100%'
-        wrap={'wrap'}
-        gap='2rem'
-        justifyContent={'center'}
-        flexGrow='100%'
-      >
+      <Flex maxW='100%' wrap={'wrap'} gap='2rem' justifyContent={'center'} flexGrow='100%'>
         {products ? (
           products.map((product: Product) => <ProductCard key={product.id} product={product} />)
         ) : (
-          // <Flex justify={'center'} align='center' className='testFlex' h='100vh'>
-          //   <Text
-          //     as='span'
-          //     fontSize='5xl'
-          //     fontFamily='ggsansmedium'
-          //     fontWeight='bold'
-          //     bgGradient={'linear(to-tl, #8A2387,#E94057,darkorange)'}
-          //     bgClip={'text'}
-          //     zIndex='2'
-          //   >
-          //     Our premium products are loading!
-          //   </Text>
-          // </Flex>
           <>
             <ProductCardSkeleton />
           </>
