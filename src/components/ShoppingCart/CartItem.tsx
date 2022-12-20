@@ -43,6 +43,11 @@ export const CartItem = (props: CartItemProps) => {
     useFetchItemsQuery()
   const { removeFromCart, setItemQuantity } = useCartContext()
 
+  // This is so that it doesn't show a skeleton for the initial value id:0 quant:0
+  if (!data && props.id === 0) {
+    return <></>
+  }
+
   if (!data) {
     return (
       <Flex flexDir={'row'}>
