@@ -46,12 +46,17 @@ export const CartItem = (props: CartItemProps) => {
   if (!data) {
     return (
       <Flex flexDir={'row'}>
-        <Skeleton h='120px' minW={['80px', '120px']} maxW={['80px', '120px']}></Skeleton>
+        <Skeleton
+          h='120px'
+          minW={['80px', '120px']}
+          maxW={['80px', '120px']}
+          rounded={'md'}
+        ></Skeleton>
         <Flex flexDir={'column'} w='100%'>
           <SkeletonText pl='1rem' w='full' />
           <Flex flexDir={'row'} mt='10px'>
-            <Skeleton w='60px' h='40px' mx='auto' />
-            <Skeleton w='40px' h='40px' />
+            <Skeleton w='60px' h='40px' mx='auto' rounded={'md'} />
+            <Skeleton w='40px' h='40px' rounded={'md'} />
           </Flex>
         </Flex>
       </Flex>

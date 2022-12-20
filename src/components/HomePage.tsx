@@ -1,15 +1,54 @@
-import { Box, Text, Flex, chakra, StatDownArrow } from '@chakra-ui/react'
+import {
+  Box,
+  Text,
+  Flex,
+  chakra,
+  StatDownArrow,
+  Skeleton,
+  SkeletonText,
+  Stack,
+  SkeletonCircle,
+} from '@chakra-ui/react'
 import { ProductCard } from './Product/ProductCard'
 import React from 'react'
 import { Product } from '../types/fakeApiTypes'
 import { useFetchItemsQuery } from '../hooks/useFetchItemsQuery'
 import { isValidMotionProp, motion } from 'framer-motion'
+import { ProductCardSkeleton } from './ProductCardSkeleton'
 
 function HomePage() {
-  const { data: products } = useFetchItemsQuery()
+  const {
+    data: products,
+    isError,
+    error,
+  }: { data: Product[] | undefined; isError: boolean; error: any } = useFetchItemsQuery()
   const ChakraBox = chakra(motion.div, {
     shouldForwardProp: isValidMotionProp,
   })
+
+  // if (!products) {
+  //   return (
+  //     <Flex flexDir={'row'}>
+  //       <Skeleton
+  //         h='120px'
+  //         minW={['80px', '120px']}
+  //         maxW={['80px', '120px']}
+  //         rounded={'md'}
+  //       ></Skeleton>
+  //       <Flex flexDir={'column'} w='100%'>
+  //         <SkeletonText pl='1rem' w='full' />
+  //         <Flex flexDir={'row'} mt='10px'>
+  //           <Skeleton w='60px' h='40px' mx='auto' rounded={'md'} />
+  //           <Skeleton w='40px' h='40px' rounded={'md'} />
+  //         </Flex>
+  //       </Flex>
+  //     </Flex>
+  //   )
+  // }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>
+  }
 
   return (
     <Box bg='white' rounded={'xl'} minH='85vh'>
@@ -81,19 +120,22 @@ function HomePage() {
         {products ? (
           products.map((product: Product) => <ProductCard key={product.id} product={product} />)
         ) : (
-          <Flex justify={'center'} align='center' className='testFlex' h='100vh'>
-            <Text
-              as='span'
-              fontSize='5xl'
-              fontFamily='ggsansmedium'
-              fontWeight='bold'
-              bgGradient={'linear(to-tl, #8A2387,#E94057,darkorange)'}
-              bgClip={'text'}
-              zIndex='2'
-            >
-              Our premium products are loading!
-            </Text>
-          </Flex>
+          // <Flex justify={'center'} align='center' className='testFlex' h='100vh'>
+          //   <Text
+          //     as='span'
+          //     fontSize='5xl'
+          //     fontFamily='ggsansmedium'
+          //     fontWeight='bold'
+          //     bgGradient={'linear(to-tl, #8A2387,#E94057,darkorange)'}
+          //     bgClip={'text'}
+          //     zIndex='2'
+          //   >
+          //     Our premium products are loading!
+          //   </Text>
+          // </Flex>
+          <>
+            <ProductCardSkeleton />
+          </>
         )}
       </Flex>
     </Box>
