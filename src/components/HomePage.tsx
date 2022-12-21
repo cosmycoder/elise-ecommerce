@@ -64,7 +64,7 @@ function HomePage() {
         <Text zIndex='2'>
           <Text
             as='span'
-            fontSize='5xl'
+            fontSize={['3xl', '5xl']}
             fontFamily='ggsansmedium'
             fontWeight='bold'
             bgGradient={'linear(to-tl, #8A2387,#E94057,darkorange)'}
@@ -73,7 +73,7 @@ function HomePage() {
           >
             Your one stop shop
           </Text>
-          <Text as='span' color='black' zIndex='2' fontSize={'5xl'}>
+          <Text as='span' color='black' zIndex='2' fontSize={['3xl', '5xl']}>
             .
           </Text>
         </Text>
@@ -102,7 +102,7 @@ function HomePage() {
             repeatDelay: 1,
           }}
         />
-        <Text color={'#E94057'} zIndex='2' fontWeight={'bold'} mt='3rem'>
+        <Text fontSize={['sm', 'md']} color={'#E94057'} zIndex='2' fontWeight={'bold'} mt='3rem'>
           Scroll down to browse our products!
         </Text>
         <StatDownArrow color={'#E94057'} zIndex='2' fontWeight={'bold'} fontSize='6xl' mt='3rem' />
