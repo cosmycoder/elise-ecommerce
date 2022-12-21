@@ -81,6 +81,15 @@ export const Navbar = () => {
           color='#E94057'
           fontWeight={'1000'}
           variant='link'
+          onClick={() => goToPage(setDisplay, 'favorites')}
+        >
+          Favorites
+        </Button>
+        <Button
+          textShadow='.5px .5px orange'
+          color='#E94057'
+          fontWeight={'1000'}
+          variant='link'
           onClick={() => goToPage(setDisplay, 'about')}
         >
           About
