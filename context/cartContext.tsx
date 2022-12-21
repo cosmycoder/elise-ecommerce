@@ -21,13 +21,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     item.quantity += quantity
     currentCart[index] = item
     return setCart(currentCart)
-
-    // if (findIndex !== -1) {
-    //   item.quantity += quantity
-    //   currentCart[findIndex] = item
-    // } else {
-    //   currentCart.push({ id, quantity })
-    // }
   }
 
   const removeFromCart = (id: number, quantity: number) => {
