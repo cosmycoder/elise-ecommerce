@@ -4,7 +4,7 @@ import { Product } from '../types/fakeApiTypes'
 
 export const useFetchItemsQuery = () => {
   const fetchAllItems = async (): Promise<Product[]> => {
-    const url = `https://fakestoreapi.com/products`
+    const url = `/api/products`
     const response = await axios.get(url)
 
     return response.data

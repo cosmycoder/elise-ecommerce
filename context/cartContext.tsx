@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 import { useFetchItemsQuery } from '../src/hooks/useFetchItemsQuery'
-import { CartDefaultValues } from '../src/types/cart'
+import { CartDefaultValues } from '../src/types/cartTypes'
 
 const Context = createContext(CartDefaultValues)
 

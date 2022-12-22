@@ -4,7 +4,7 @@ import * as React from 'react'
 import { useCartContext } from '../../../context/cartContext'
 import { goToPageOutsideOfNavbar } from '../../helpers/routeFunction'
 import { useFetchItemsQuery } from '../../hooks/useFetchItemsQuery'
-import { CartItem } from '../../types/cart'
+import { CartItem } from '../../types/cartTypes'
 import { Product } from '../../types/fakeApiTypes'
 import { formatPrice } from './PriceTag'
 
