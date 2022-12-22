@@ -21,7 +21,7 @@ export default function Index() {
             flex='auto'
             justifyContent={'center'}
             flexDir={'column'}
-            p='4'
+            p={['2', '4', '12']}
             m='4'
             bgColor='white'
             shadow={'2xl'}
