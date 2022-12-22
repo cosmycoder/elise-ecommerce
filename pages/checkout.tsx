@@ -4,7 +4,7 @@ import { ScrollToTop } from '../src/components/ScrollToTop'
 
 export default function Index() {
   return (
-    <Layout>
+    <Layout title={'Checkout - Elise'}>
       <Checkout />
       <ScrollToTop />
     </Layout>
