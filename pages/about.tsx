@@ -27,12 +27,13 @@ export default function Index() {
             shadow={'2xl'}
           >
             <IconButton
+              mt='1rem'
               as={StyledBsShop}
               aria-label='shop icon/button that takes you to homepage'
               color='darkorange'
               w={['3rem', '10rem', '20rem']}
               h={['2rem', '3rem', '4rem']}
-              mb='1rem'
+              mb='2rem'
               mx='auto'
               variant={'link'}
               onClick={() => goToPageOutsideOfNavbar()}
@@ -47,11 +48,17 @@ export default function Index() {
                 possible. We offer a wide range of high-quality products at competitive prices, and
                 our team is dedicated to providing excellent customer service.{' '}
               </Text>
+              <Text fontSize={['2xl', '3xl', '4l']} textAlign={'center'} fontWeight='bold'>
+                ·
+              </Text>
               <Text fontSize={['xl', '2xl', '3xl']} fontWeight='600' textAlign={'center'}>
                 We believe in the importance of sustainability and ethical practices, and we strive
                 to source our products from responsible and environmentally-friendly sources. We
                 also offer a variety of eco-friendly and sustainable products for our customers who
                 are looking to make more sustainable choices in their everyday lives.
+              </Text>
+              <Text fontSize={['2xl', '3xl', '4l']} textAlign={'center'} fontWeight='bold'>
+                ·
               </Text>
               <Text fontSize={['xl', '2xl', '3xl']} fontWeight='600' textAlign={'center'}>
                 At Elise, we are constantly working to improve and evolve, and we are always looking
