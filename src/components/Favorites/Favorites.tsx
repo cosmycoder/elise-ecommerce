@@ -55,13 +55,12 @@ export const Favorites = () => {
           </Text>
 
           <Flex
-            mt='4rem'
-            maxW='100%'
+            my='4rem'
+            mx='auto'
+            maxW={['100%', '80%']}
             wrap={'wrap'}
             gap='2rem'
             justifyContent={'center'}
-            alignItems={'center'}
-            alignContent='center'
           >
             {products ? (
               state.map((e) => {
