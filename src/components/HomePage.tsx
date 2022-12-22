@@ -110,7 +110,7 @@ function HomePage() {
 
       <Flex maxW='100%' wrap={'wrap'} gap='2rem' justifyContent={'center'} flexGrow='100%'>
         {products ? (
-          products.map((product: Product) => <ProductCard key={product.id} product={product} />)
+          products.map((p: Product) => <ProductCard key={p.id} product={p} />)
         ) : (
           <>
             <ProductCardSkeleton />

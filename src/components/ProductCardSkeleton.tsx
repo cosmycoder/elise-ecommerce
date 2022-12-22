@@ -23,6 +23,7 @@ export const ProductCardSkeleton = () => {
         </Stack>
         <Skeleton w='80%' h='40px' rounded='xl' mx='auto' />
       </Flex>
+
       <Flex p='1rem' h='400px' w='320px' flexDir={'column'}>
         <Box pos='relative'>
           <Flex bg='white' rounded={'lg'} justifyContent={'center'} alignContent='center'>
@@ -42,6 +43,7 @@ export const ProductCardSkeleton = () => {
         </Stack>
         <Skeleton w='80%' h='40px' rounded='xl' mx='auto' />
       </Flex>
+
       <Flex p='1rem' h='400px' w='320px' flexDir={'column'}>
         <Box pos='relative'>
           <Flex bg='white' rounded={'lg'} justifyContent={'center'} alignContent='center'>
@@ -61,6 +63,7 @@ export const ProductCardSkeleton = () => {
         </Stack>
         <Skeleton w='80%' h='40px' rounded='xl' mx='auto' />
       </Flex>
+
       <Flex p='1rem' h='400px' w='320px' flexDir={'column'}>
         <Box pos='relative'>
           <Flex bg='white' rounded={'lg'} justifyContent={'center'} alignContent='center'>

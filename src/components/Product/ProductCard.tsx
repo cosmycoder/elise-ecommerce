@@ -4,7 +4,6 @@ import {
   Flex,
   HStack,
   Image,
-  Link,
   Skeleton,
   Stack,
   StackProps,
