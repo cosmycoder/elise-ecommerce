@@ -9,8 +9,6 @@ export const Favorites = () => {
   const { state } = useFavorite()
   const { data: products } = useFetchItemsQuery()
 
-  console.log(state.length, state, state.length === 1)
-
   // if there are no items in favorites.
   if (state.length === 1) {
     return (

@@ -61,6 +61,7 @@ export const CartOrderSummary = () => {
         w='100%'
         size='lg'
         fontSize='md'
+        onClick={() => alert('Checkout page is not yet implemented but it soon will be!')}
         // onClick={() => goToPageOutsideOfNavbar('checkout')} TODO: this is commented until I properly implement Checkout page.
       >
         Checkout

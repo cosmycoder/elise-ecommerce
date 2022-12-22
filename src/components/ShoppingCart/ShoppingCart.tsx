@@ -7,7 +7,6 @@ import { CartOrderSummary } from './CartOrderSummary'
 
 export const ShoppingCart = () => {
   const { cart } = useCartContext()
-  console.log('cart', cart)
   return (
     <Box
       maxW={{ base: '3xl', lg: '7xl' }}

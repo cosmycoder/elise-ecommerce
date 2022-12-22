@@ -3,12 +3,15 @@ import { Button, Flex, IconButton } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useCartContext } from '../../context/cartContext'
+import { useFavorite } from '../../context/favoritesContext'
 import { goToPage } from '../helpers/routeFunction'
 import { CartIcon } from './CartIcon'
+import { FavoriteIcon } from './FavoriteIcon'
 import { StyledBsShop } from './StyledBsShop'
 
 export const Navbar = () => {
   const [display, setDisplay] = useState('none')
+  const { state } = useFavorite()
   const { cart } = useCartContext()
   const router = useRouter()
 
@@ -55,7 +58,7 @@ export const Navbar = () => {
         >
           Home
         </Button>
-        {cart.length - 1 > 0 ? (
+        {cart.length > 1 ? (
           <CartIcon />
         ) : (
           <Button
@@ -76,15 +79,19 @@ export const Navbar = () => {
         >
           Checkout
         </Button> */}
-        <Button
-          textShadow='.5px .5px orange'
-          color='#E94057'
-          fontWeight={'1000'}
-          variant='link'
-          onClick={() => goToPage(setDisplay, 'favorites')}
-        >
-          Favorites
-        </Button>
+        {state.length > 1 ? (
+          <FavoriteIcon />
+        ) : (
+          <Button
+            textShadow='.5px .5px orange'
+            color='#E94057'
+            fontWeight={'1000'}
+            variant='link'
+            onClick={() => goToPage(setDisplay, 'favorites')}
+          >
+            Favorites
+          </Button>
+        )}
         <Button
           textShadow='.5px .5px orange'
           color='#E94057'
@@ -99,8 +106,8 @@ export const Navbar = () => {
       {/* Mobile Hamburger Menu */}
       <Flex my={'.5rem'} ml={'auto'} mr={'1rem'} display={['flex', 'none', 'none', 'none']}>
         {/* Cart shows up if not empty */}
-        {cart.length - 1 > 0 && <CartIcon pr='1rem' />}
-
+        {cart.length > 1 && <CartIcon pr='1.5rem' />}
+        {state.length > 1 && <FavoriteIcon pr='1.5rem' />}
         <IconButton
           display={['flex', 'none', 'none', 'none']}
           size={'md'}
@@ -124,18 +131,21 @@ export const Navbar = () => {
           overflow={'auto'}
         >
           <IconButton
-            colorScheme={'#000000'}
+            pos='absolute'
+            top='0'
+            right='0'
             mt='1.5rem'
-            ml={'auto'}
             mr='2rem'
+            colorScheme={'#000000'}
             size={'md'}
             width={'1rem'}
             aria-label='Close Icon'
             icon={<CloseIcon color={'white'} fontSize='xl' />}
             onClick={() => setDisplay('none')}
           />
-          <Flex flexDir='column' pr='2rem' pl='2rem' gap={'3rem'} alignItems='center'>
+          <Flex flexDir='column' px='2rem' gap={'4rem'} alignItems='center' my='auto'>
             <Button
+              rounded='xl'
               textShadow='2.5px 2.5px orange'
               colorScheme='black'
               outlineColor='darkorange'
@@ -148,6 +158,7 @@ export const Navbar = () => {
               Home
             </Button>
             <Button
+              rounded='xl'
               textShadow='2.5px 2.5px orange'
               colorScheme='black'
               outlineColor='darkorange'
@@ -158,6 +169,17 @@ export const Navbar = () => {
               Cart
             </Button>
 
+            <Button
+              rounded='xl'
+              textShadow='2.5px 2.5px orange'
+              colorScheme='black'
+              outlineColor='darkorange'
+              size={'lg'}
+              minWidth='60vw'
+              onClick={() => goToPage(setDisplay, 'favorites')}
+            >
+              Favorites
+            </Button>
             {/* <Button
               colorScheme='black'
               size={'lg'}
@@ -174,19 +196,13 @@ export const Navbar = () => {
               Checkout
             </Button> */}
             <Button
+              rounded='xl'
               textShadow='2.5px 2.5px orange'
               colorScheme='black'
               outlineColor='darkorange'
               size={'lg'}
               minWidth='60vw'
-              onClick={() => {
-                if (router.pathname === '/about') {
-                  setDisplay('none')
-                } else {
-                  router.push('about')
-                  setDisplay('none')
-                }
-              }}
+              onClick={() => goToPage(setDisplay, 'about')}
             >
               About
             </Button>
