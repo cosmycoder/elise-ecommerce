@@ -16,6 +16,7 @@ const favoriteReducer = (state: State, action: Action) => {
       let currentState = structuredClone(state)
       const findIndex = state.findIndex((e) => e.id === action.id)
       findIndex === -1 ? currentState.push({ id: action.id }) : currentState.splice(findIndex, 1)
+      document.getElementById('navbar')!.style.opacity = '1' // make navbar visible.
       return currentState
     }
     default: {

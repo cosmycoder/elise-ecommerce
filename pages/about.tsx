@@ -4,15 +4,30 @@ import { ScrollToTop } from '../src/components/ScrollToTop'
 import { goToPageOutsideOfNavbar } from '../src/helpers/routeFunction'
 import { StyledBsShop } from '../src/components/StyledBsShop'
 import Head from 'next/head'
+import { hideNavbarOnScrollDown } from '../src/helpers/hideNavbarOnScrollDown'
 
 export default function Index() {
+  hideNavbarOnScrollDown()
   return (
     <>
       <Head>
         <title>About - Elise</title>
       </Head>
       <Flex direction='column' minH='100vh' bg='gray.50'>
-        <Box as='header' bg='linear-gradient(to top, transparent, #d1d1d1)' color='white' p='4'>
+        <Box
+          id='navbar'
+          as='header'
+          // bg='linear-gradient(to top, transparent, #d1d1d1)'
+          backgroundColor='rgba(255, 255, 255, .7)'
+          color='white'
+          p='4'
+          w='100%'
+          zIndex={'5'}
+          position={'sticky'}
+          backdropFilter='saturate(180%) blur(15px)'
+          top={'0'}
+          roundedBottom={'2xl'}
+        >
           <Navbar />
         </Box>
         <Flex flex='auto'>

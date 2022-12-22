@@ -1,5 +1,6 @@
 import { Flex, Text, Box } from '@chakra-ui/react'
 import Head from 'next/head'
+import { hideNavbarOnScrollDown } from '../helpers/hideNavbarOnScrollDown'
 import { Navbar } from './NavBar'
 
 export default function Layout({
@@ -9,6 +10,7 @@ export default function Layout({
   children?: JSX.Element | JSX.Element[]
   title: string
 }) {
+  hideNavbarOnScrollDown() //pretty straightforward
   return (
     <>
       <Head>
@@ -16,6 +18,7 @@ export default function Layout({
       </Head>
       <Flex direction='column' h='auto' minH='100vh' bg='gray.50'>
         <Box
+          id='navbar'
           as='header'
           // bg='linear-gradient(to top, transparent, #d1d1d1)'
           backgroundColor='rgba(255, 255, 255, .7)'
