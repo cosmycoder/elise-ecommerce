@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
+import React from 'react'
 import { useFavorite } from '../../../context/favoritesContext'
 import { useFetchItemsQuery } from '../../hooks/useFetchItemsQuery'
 import { Product } from '../../types/fakeApiTypes'
@@ -15,7 +16,7 @@ export const Favorites = () => {
       <Flex
         flexDir={'column'}
         justifyContent={'center'}
-        minH='75vh'
+        minH='70vh'
         alignItems={'center'}
         pt='2rem'
       >
@@ -65,9 +66,9 @@ export const Favorites = () => {
             {products ? (
               state.map((e) => {
                 return e.id === 0 ? (
-                  <></>
+                  <React.Fragment key={e.id}></React.Fragment>
                 ) : (
-                  <ProductCard key={products[e.id - 1].id} product={products[e.id - 1]} />
+                  <ProductCard key={e.id} product={products[e.id - 1]} />
                 )
               })
             ) : (
