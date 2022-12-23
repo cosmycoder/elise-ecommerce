@@ -1,4 +1,4 @@
-export const hideNavbarOnScrollDown = () => {
+export const adjustNavbarOpacityOnScroll = () => {
   if (typeof window !== 'undefined') {
     var prevScrollpos = window.pageYOffset
     window.onscroll = function () {

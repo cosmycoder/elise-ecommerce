@@ -1,6 +1,6 @@
 import { Flex, Text, Box } from '@chakra-ui/react'
 import Head from 'next/head'
-import { hideNavbarOnScrollDown } from '../helpers/hideNavbarOnScrollDown'
+import { adjustNavbarOpacityOnScroll } from '../helpers/adjustNavbarOpacityOnScroll'
 import { Navbar } from './NavBar'
 
 export default function Layout({
@@ -10,7 +10,7 @@ export default function Layout({
   children?: JSX.Element | JSX.Element[]
   title: string
 }) {
-  hideNavbarOnScrollDown() //pretty straightforward
+  adjustNavbarOpacityOnScroll() //pretty straightforward
   return (
     <>
       <Head>

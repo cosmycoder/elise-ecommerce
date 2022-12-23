@@ -4,10 +4,10 @@ import { ScrollToTop } from '../src/components/ScrollToTop'
 import { goToPageOutsideOfNavbar } from '../src/helpers/routeFunction'
 import { StyledBsShop } from '../src/components/StyledBsShop'
 import Head from 'next/head'
-import { hideNavbarOnScrollDown } from '../src/helpers/hideNavbarOnScrollDown'
+import { adjustNavbarOpacityOnScroll } from '../src/helpers/adjustNavbarOpacityOnScroll'
 
 export default function Index() {
-  hideNavbarOnScrollDown()
+  adjustNavbarOpacityOnScroll()
   return (
     <>
       <Head>
