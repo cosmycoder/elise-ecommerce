@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-type Action = { type: 'addOrRemove'; id: number }
-type Dispatch = (action: Action) => void
-type State = { id: number }[]
-type ContextValue = {
+export type Action = { type: 'addOrRemove'; id: number }
+export type Dispatch = (action: Action) => void
+export type State = { id: number }[]
+export type ContextValue = {
   state: State
   dispatch: Dispatch
 }

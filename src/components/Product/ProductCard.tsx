@@ -20,6 +20,7 @@ import { Product } from '../../types/fakeApiTypes'
 import { useCartContext } from '../../../context/cartContext'
 import { goToPageOutsideOfNavbar } from '../../helpers/routeFunction'
 import { useFavorite } from '../../../context/favoritesContext'
+import { isFavorite } from '../../helpers/isFavorite'
 
 interface Props {
   product: Product
@@ -31,15 +32,6 @@ export const ProductCard = (props: Props) => {
   const { title, image, price, rating } = product
   const { addToCart } = useCartContext()
   const { state, dispatch } = useFavorite()
-
-  /**
-   * @returns true if product was added to favorites before, false if not.
-   */
-  const isFavorite = (): boolean => {
-    const findIndex = state.findIndex((e) => e.id === product.id)
-    return findIndex !== -1
-  }
-
   return (
     <Flex
       spacing={useBreakpointValue({ base: '4', md: '5' })}
@@ -67,7 +59,7 @@ export const ProductCard = (props: Props) => {
         </Flex>
         <FavouriteButton
           position='absolute'
-          bg={isFavorite() ? 'darkorange' : 'white'}
+          bg={isFavorite(state, product) ? 'darkorange' : 'white'}
           top='4'
           right='4'
           aria-label={`Add ${title} to your favourites`}
