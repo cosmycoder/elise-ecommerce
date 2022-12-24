@@ -6,6 +6,7 @@ import { goToPageOutsideOfNavbar } from '../helpers/routeFunction'
 
 export const CartIcon = (props: CenterProps) => {
   const { cart } = useCartContext()
+  let cartTotalItemAmount = cart.reduce((total, item) => total + item.quantity, 0)
   return (
     <Center
       {...props}
@@ -13,7 +14,7 @@ export const CartIcon = (props: CenterProps) => {
       _hover={{ cursor: 'pointer' }}
     >
       <Text pos='absolute' pl='25px' pb='25px' zIndex='3' fontSize={'14px'}>
-        {cart.length - 1}
+        {cartTotalItemAmount}
       </Text>
       <Icon
         as={BsFillCircleFill}
