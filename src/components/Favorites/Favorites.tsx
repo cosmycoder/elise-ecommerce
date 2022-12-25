@@ -57,7 +57,7 @@ export const Favorites = () => {
           <Flex
             my='4rem'
             mx='auto'
-            maxW={['100%', '80%']}
+            maxW={{ base: '100%', '2xl': '75%' }}
             wrap={'wrap'}
             gap='2rem'
             justifyContent={'center'}

@@ -108,7 +108,14 @@ function HomePage() {
         <StatDownArrow color={'#E94057'} zIndex='2' fontWeight={'bold'} fontSize='6xl' mt='3rem' />
       </Flex>
 
-      <Flex maxW='100%' wrap={'wrap'} gap='2rem' justifyContent={'center'} flexGrow='100%'>
+      <Flex
+        mx='auto'
+        maxW={{ base: '100%', '2xl': '75%' }}
+        wrap={'wrap'}
+        gap='2rem'
+        justifyContent={'center'}
+        flexGrow='100%'
+      >
         {products ? (
           products.map((p: Product) => <ProductCard key={p.id} product={p} />)
         ) : (
