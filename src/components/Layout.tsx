@@ -10,7 +10,6 @@ export default function Layout({
   children?: JSX.Element | JSX.Element[]
   title: string
 }) {
-  adjustNavbarOpacityOnScroll() //pretty straightforward
   return (
     <>
       <Head>
@@ -30,6 +29,7 @@ export default function Layout({
           backdropFilter='saturate(180%) blur(15px)'
           top={'0'}
           roundedBottom={'2xl'}
+          transition='all .4s ease'
         >
           <Navbar />
         </Box>

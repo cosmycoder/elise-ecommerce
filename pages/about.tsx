@@ -7,7 +7,6 @@ import Head from 'next/head'
 import { adjustNavbarOpacityOnScroll } from '../src/helpers/adjustNavbarOpacityOnScroll'
 
 export default function Index() {
-  adjustNavbarOpacityOnScroll()
   return (
     <>
       <Head>

@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useCartContext } from '../../context/cartContext'
 import { useFavorite } from '../../context/favoritesContext'
+import { adjustNavbarOpacityOnScroll } from '../helpers/adjustNavbarOpacityOnScroll'
 import { goToPage } from '../helpers/routeFunction'
 import { CartIcon } from './CartIcon'
 import { FavoriteIcon } from './FavoriteIcon'
@@ -14,7 +15,7 @@ export const Navbar = () => {
   const { state } = useFavorite()
   const { cart } = useCartContext()
   const router = useRouter()
-
+  adjustNavbarOpacityOnScroll(display)
   return (
     <Flex as='nav' align='center' justify='space-between' wrap='wrap' h='7.5vh'>
       <Flex flexDir={'row'} justifyContent='center' align={'center'}>
