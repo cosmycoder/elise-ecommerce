@@ -11,7 +11,8 @@ export const CartIcon = (props: CenterProps) => {
     <Center
       {...props}
       onClick={() => goToPageOutsideOfNavbar('shopping-cart')}
-      _hover={{ cursor: 'pointer' }}
+      _hover={{ cursor: 'pointer', transform: 'scale(1.1)' }}
+      transition='all 0.15s ease'
     >
       <Text pos='absolute' pl='25px' pb='25px' zIndex='3' fontSize={'14px'}>
         {cartTotalItemAmount}
@@ -21,7 +22,7 @@ export const CartIcon = (props: CenterProps) => {
         position='absolute'
         pl='25px'
         pb='25px'
-        fontSize={'46px'}
+        fontSize={'50px'}
         zIndex={'2'}
         color='#E94057'
       />

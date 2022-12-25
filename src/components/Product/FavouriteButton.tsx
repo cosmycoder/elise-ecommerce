@@ -1,6 +1,7 @@
 import { StarIcon } from '@chakra-ui/icons'
 import { Icon, IconButton, IconButtonProps, LightMode } from '@chakra-ui/react'
 import * as React from 'react'
+import { BsHeartFill } from 'react-icons/bs'
 
 export const FavouriteButton = (props: IconButtonProps) => (
   <LightMode>
@@ -12,7 +13,7 @@ export const FavouriteButton = (props: IconButtonProps) => (
       _hover={{ transform: 'scale(1.1)' }}
       sx={{ ':hover > svg': { transform: 'scale(1.1)' } }}
       transition='all 0.15s ease'
-      icon={<Icon as={StarIcon} transition='all 0.15s ease' />}
+      icon={<Icon as={BsHeartFill} transition='all 0.15s ease' />}
       boxShadow='base'
       {...props}
     />
