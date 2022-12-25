@@ -1,7 +1,7 @@
 import { Flex, Text, Box } from '@chakra-ui/react'
 import Head from 'next/head'
-import { adjustNavbarOpacityOnScroll } from '../helpers/adjustNavbarOpacityOnScroll'
 import { Navbar } from './NavBar'
+import { OpenGraphTags } from './OpenGraphTags'
 
 export default function Layout({
   children,
@@ -14,7 +14,9 @@ export default function Layout({
     <>
       <Head>
         <title>{title}</title>
+        <OpenGraphTags />
       </Head>
+
       <Flex direction='column' h='auto' minH='100vh' bg='gray.50'>
         <Box
           id='navbar'
