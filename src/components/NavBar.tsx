@@ -1,3 +1,4 @@
+import { useUser } from '@auth0/nextjs-auth0/client'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { Button, Flex, IconButton } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
@@ -11,6 +12,7 @@ import { FavoriteIcon } from './FavoriteIcon'
 import { StyledBsShop } from './StyledBsShop'
 
 export const Navbar = () => {
+  const { user } = useUser()
   const [display, setDisplay] = useState('none')
   const { state } = useFavorite()
   const { cart } = useCartContext()
@@ -102,6 +104,27 @@ export const Navbar = () => {
         >
           About
         </Button>
+        {user ? (
+          <Button
+            textShadow='.5px .5px orange'
+            color='#E94057'
+            fontWeight={'1000'}
+            variant='link'
+            onClick={() => router.push('/api/auth/logout')}
+          >
+            Logout
+          </Button>
+        ) : (
+          <Button
+            textShadow='.5px .5px orange'
+            color='#E94057'
+            fontWeight={'1000'}
+            variant='link'
+            onClick={() => router.push('/api/auth/login')}
+          >
+            Login
+          </Button>
+        )}
       </Flex>
 
       {/* Mobile Hamburger Menu */}
