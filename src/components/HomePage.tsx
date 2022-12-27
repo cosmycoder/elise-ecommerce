@@ -32,7 +32,6 @@ function HomePage() {
     return <span>Error: {error.message}</span>
   }
 
-  console.log(user)
   return (
     <Box bg='white' rounded={'xl'} minH='85vh'>
       <Flex
