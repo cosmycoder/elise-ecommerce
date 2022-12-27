@@ -58,7 +58,7 @@ function HomePage() {
           </Text>
         </Text>
         <ChakraBox
-          display={['none', 'flex']}
+          display={{ md: 'none', lg: 'flex' }}
           style={{
             background: 'black',
             width: '200px',
