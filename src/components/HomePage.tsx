@@ -78,7 +78,7 @@ function HomePage() {
             zIndex: '1',
             position: 'absolute',
             marginLeft: '395px',
-            marginBottom: '150px',
+            marginBottom: '50px',
           }}
           animate={{
             scale: [1, 2, 2, 1, 0],
