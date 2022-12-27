@@ -1,21 +1,12 @@
-import {
-  Box,
-  Text,
-  Flex,
-  chakra,
-  StatDownArrow,
-  Skeleton,
-  SkeletonText,
-  Stack,
-  SkeletonCircle,
-} from '@chakra-ui/react'
+import { Box, Text, Flex, chakra, StatDownArrow } from '@chakra-ui/react'
 import { ProductCard } from './Product/ProductCard'
-import React from 'react'
+import React, { useRef } from 'react'
 import { Product } from '../types/fakeApiTypes'
 import { useFetchItemsQuery } from '../hooks/useFetchItemsQuery'
 import { isValidMotionProp, motion } from 'framer-motion'
 import { ProductCardSkeleton } from './ProductCardSkeleton'
 import { useUser } from '@auth0/nextjs-auth0/client'
+import { useRouter } from 'next/router'
 
 function HomePage() {
   const {
@@ -24,6 +15,8 @@ function HomePage() {
     error,
   }: { data: Product[] | undefined; isError: boolean; error: any } = useFetchItemsQuery()
   const { user } = useUser()
+  const router = useRouter()
+  const scrollToRef = useRef<HTMLDivElement>(null)
   const ChakraBox = chakra(motion.div, {
     shouldForwardProp: isValidMotionProp,
   })
@@ -97,7 +90,23 @@ function HomePage() {
         <Text fontSize={['sm', 'md']} color={'#E94057'} zIndex='2' fontWeight={'bold'} mt='3rem'>
           Scroll down to browse our products!
         </Text>
-        <StatDownArrow color={'#E94057'} zIndex='2' fontWeight={'bold'} fontSize='6xl' mt='3rem' />
+        <Text mt='3rem' as='i' fontWeight={'bold'} color='#E94057'>
+          click me!
+        </Text>
+        <StatDownArrow
+          mt='-.5rem'
+          color={'#E94057'}
+          zIndex='2'
+          fontWeight={'bold'}
+          fontSize='6xl'
+          onClick={(e) => {
+            e.preventDefault
+            const navbar = document.getElementById('navbar')!
+            navbar.style.opacity = '0'
+            navbar.style.visibility = 'hidden'
+            scrollToRef.current?.scrollIntoView()
+          }}
+        />
       </Flex>
 
       <Flex
@@ -108,6 +117,7 @@ function HomePage() {
         justifyContent={'center'}
         flexGrow='100%'
         id='products'
+        ref={scrollToRef}
       >
         {products ? (
           products.map((p: Product) => <ProductCard key={p.id} product={p} />)
