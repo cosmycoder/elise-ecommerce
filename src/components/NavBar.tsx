@@ -9,6 +9,7 @@ import { adjustNavbarOpacityOnScroll } from '../helpers/adjustNavbarOpacityOnScr
 import { goToPage } from '../helpers/routeFunction'
 import { CartIcon } from './CartIcon'
 import { FavoriteIcon } from './FavoriteIcon'
+import { LoginLogoutButton } from './LoginLogoutButton'
 import { StyledBsShop } from './StyledBsShop'
 
 export const Navbar = () => {
@@ -192,7 +193,6 @@ export const Navbar = () => {
             >
               Cart
             </Button>
-
             <Button
               rounded='xl'
               textShadow='2.5px 2.5px orange'
@@ -204,6 +204,7 @@ export const Navbar = () => {
             >
               Favorites
             </Button>
+            <LoginLogoutButton setDisplay={setDisplay} />
             {/* <Button
               colorScheme='black'
               size={'lg'}
