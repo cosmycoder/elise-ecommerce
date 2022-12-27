@@ -107,6 +107,7 @@ function HomePage() {
         gap='2rem'
         justifyContent={'center'}
         flexGrow='100%'
+        id='products'
       >
         {products ? (
           products.map((p: Product) => <ProductCard key={p.id} product={p} />)
