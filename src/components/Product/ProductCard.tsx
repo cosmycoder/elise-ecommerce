@@ -56,6 +56,8 @@ export const ProductCard = (props: Props) => {
               draggable='false'
               borderRadius={useBreakpointValue({ base: 'md', md: 'xl' })}
               onLoad={() => setIsLoaded(true)}
+              onClick={() => goToPageOutsideOfNavbar(`product/${product.id}`)}
+              _hover={{ cursor: 'pointer', userSelect: 'none' }}
             />
           </Skeleton>
         </Flex>
@@ -75,6 +77,8 @@ export const ProductCard = (props: Props) => {
             textAlign={'center'}
             color={useColorModeValue('gray.700', 'gray.400')}
             noOfLines={[2]}
+            onClick={() => goToPageOutsideOfNavbar(`product/${product.id}`)}
+            _hover={{ cursor: 'pointer', userSelect: 'none' }}
           >
             {title}
           </Text>
