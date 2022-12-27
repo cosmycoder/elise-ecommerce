@@ -15,6 +15,7 @@ import { Product } from '../types/fakeApiTypes'
 import { useFetchItemsQuery } from '../hooks/useFetchItemsQuery'
 import { isValidMotionProp, motion } from 'framer-motion'
 import { ProductCardSkeleton } from './ProductCardSkeleton'
+import { useUser } from '@auth0/nextjs-auth0/client'
 
 function HomePage() {
   const {
@@ -22,6 +23,7 @@ function HomePage() {
     isError,
     error,
   }: { data: Product[] | undefined; isError: boolean; error: any } = useFetchItemsQuery()
+  const { user } = useUser()
   const ChakraBox = chakra(motion.div, {
     shouldForwardProp: isValidMotionProp,
   })
@@ -30,6 +32,7 @@ function HomePage() {
     return <span>Error: {error.message}</span>
   }
 
+  console.log(user)
   return (
     <Box bg='white' rounded={'xl'} minH='85vh'>
       <Flex
@@ -41,7 +44,17 @@ function HomePage() {
         mb='5rem'
         h='90vh'
       >
-        <Text zIndex='2'>
+        <Text
+          fontSize={['3xl', '5xl']}
+          fontFamily='ggsansmedium'
+          fontWeight='bold'
+          bgGradient={'linear(to-br, #8A2387,#E94057,darkorange)'}
+          bgClip={'text'}
+          zIndex='2'
+        >
+          {`Welcome ${user ? user.name + '!' : 'friend!'}`}
+        </Text>
+        <Text zIndex='2' mt='2rem'>
           <Text
             as='span'
             fontSize={['3xl', '5xl']}
@@ -58,7 +71,7 @@ function HomePage() {
           </Text>
         </Text>
         <ChakraBox
-          display={{ md: 'none', lg: 'flex' }}
+          display={{ base: 'none', lg: 'flex' }}
           style={{
             background: 'black',
             width: '200px',
