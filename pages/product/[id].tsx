@@ -10,7 +10,7 @@ export default function Index() {
 
   return (
     <Layout title={'Product Details - Elise'}>
-      <ProductDetails id={itemId} />
+      <ProductDetails index={itemId - 1} />
       <ScrollToTop />
     </Layout>
   )
