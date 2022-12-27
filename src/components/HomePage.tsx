@@ -70,8 +70,8 @@ function HomePage() {
             height: '200px',
             zIndex: '1',
             position: 'absolute',
-            marginLeft: '395px',
-            marginBottom: '50px',
+            marginLeft: '393px',
+            marginBottom: '60px',
           }}
           animate={{
             scale: [1, 2, 2, 1, 0],
