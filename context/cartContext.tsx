@@ -12,7 +12,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     let currentCart = structuredClone(cart)
     const index = cart.findIndex((e) => e.id === id)
     let item = structuredClone(currentCart[index])
-    document.getElementById('navbar')!.style.opacity = '1' // make navbar visible.
+    document.getElementById('navbar')!.style.visibility = 'visible'
+    setTimeout(() => {
+      document.getElementById('navbar')!.style.opacity = '1'
+    }) //make navbar visible with fading in animation.
 
     if (index === -1) {
       currentCart.push({ id, quantity })
