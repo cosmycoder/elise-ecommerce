@@ -99,13 +99,13 @@ function HomePage() {
           zIndex='2'
           fontWeight={'bold'}
           fontSize='6xl'
-          onClick={(e) => {
-            e.preventDefault
+          onClick={() => {
             const navbar = document.getElementById('navbar')!
             navbar.style.opacity = '0'
             navbar.style.visibility = 'hidden'
             scrollToRef.current?.scrollIntoView()
           }}
+          _hover={{ cursor: 'pointer' }}
         />
       </Flex>
 
