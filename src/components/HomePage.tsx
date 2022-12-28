@@ -124,6 +124,9 @@ function HomePage() {
         ) : (
           <>
             <ProductCardSkeleton />
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
+            <ProductCardSkeleton />
           </>
         )}
       </Flex>

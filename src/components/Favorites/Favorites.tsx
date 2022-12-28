@@ -73,6 +73,8 @@ export const Favorites = () => {
             ) : (
               <>
                 <ProductCardSkeleton />
+                <ProductCardSkeleton />
+                <ProductCardSkeleton />
               </>
             )}
           </Flex>
