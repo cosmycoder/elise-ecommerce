@@ -5,7 +5,7 @@ export const adjustNavbarOpacityOnScroll = (display: string) => {
       var currentScrollPos = window.pageYOffset
       const navbar = document.getElementById('navbar')!
 
-      if (prevScrollpos < currentScrollPos && display !== 'flex') {
+      if (prevScrollpos < currentScrollPos && display !== 'flex' && currentScrollPos !== 0) {
         navbar.style.opacity = '0'
         navbar.style.visibility = 'hidden'
       } else if (prevScrollpos > currentScrollPos) {
@@ -13,11 +13,6 @@ export const adjustNavbarOpacityOnScroll = (display: string) => {
         navbar.style.opacity = '1'
       }
 
-      // This prevents navbar from disappearing on mobile when it bumps at the top of the page and scrolls down by itself to fit the view.
-      if (currentScrollPos === 0) {
-        navbar.style.visibility = 'visible'
-        navbar.style.opacity = '1'
-      }
       prevScrollpos = currentScrollPos
     }
   }
