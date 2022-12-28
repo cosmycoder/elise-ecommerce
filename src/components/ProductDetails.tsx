@@ -53,7 +53,7 @@ export const ProductDetails = ({ index }: { index: number }) => {
 
   return (
     <Flex
-      maxW={{ base: '60%', '2xl': '45%' }}
+      maxW={{ base: '90%', '2xl': '60%' }}
       minH={'40vw'}
       flexDir='column'
       justifyContent='center'
@@ -83,7 +83,7 @@ export const ProductDetails = ({ index }: { index: number }) => {
         <Rating defaultValue={rating.rate} size='sm' />
         <PriceTag price={price} currency='USD' />
       </Center>
-      <Text mt='2rem' textAlign={'center'}>
+      <Text mt='2rem' textAlign={'center'} w={{ base: '90%', sm: '70%', lg: '50%', '2xl': '70%' }}>
         {description}
       </Text>
       <Stack align='center' mt='1.5rem'>
