@@ -7,6 +7,10 @@ import { isValidMotionProp, motion } from 'framer-motion'
 import { ProductCardSkeleton } from './ProductCardSkeleton'
 import { useUser } from '@auth0/nextjs-auth0/client'
 import { useRouter } from 'next/router'
+import TextTransition, { presets } from 'react-text-transition'
+import { texts } from '../data/texts'
+import { useTextIndex } from '../hooks/useTextIndex'
+import WelcomeText from './WelcomeText'
 
 function HomePage() {
   const {
@@ -17,6 +21,7 @@ function HomePage() {
   const { user } = useUser()
   const router = useRouter()
   const scrollToRef = useRef<HTMLDivElement>(null)
+  const index = useTextIndex()
   const ChakraBox = chakra(motion.div, {
     shouldForwardProp: isValidMotionProp,
   })
@@ -36,16 +41,20 @@ function HomePage() {
         mb='5rem'
         h='90vh'
       >
-        <Text
-          fontSize={['3xl', '5xl']}
-          fontFamily='ggsansmedium'
-          fontWeight='bold'
-          bgGradient={'linear(to-br, #8A2387,#E94057,darkorange)'}
-          bgClip={'text'}
-          zIndex='2'
-        >
-          {`Welcome ${user ? user.name + '!' : 'friend!'}`}
-        </Text>
+        {/* Welcome username part */}
+        {user ? (
+          <Text
+            fontSize={['3xl', '5xl']}
+            fontFamily='ggsansmedium'
+            fontWeight='bold'
+            zIndex='2'
+            bgGradient={'linear(to-br, #8A2387,#E94057,darkorange)'}
+            bgClip={'text'}
+          >{`Welcome ${user.name}!`}</Text>
+        ) : (
+          <WelcomeText />
+        )}
+
         <Text zIndex='2' mt='2rem'>
           <Text
             as='span'
