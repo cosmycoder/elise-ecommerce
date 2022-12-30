@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: 'ggsansmedium', '-apple-system', 'sans-serif';
   background-color: black;
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
 }
 
 a {
