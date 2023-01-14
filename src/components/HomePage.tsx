@@ -31,7 +31,16 @@ function HomePage() {
   }
 
   return (
-    <Box bg='white' rounded={'xl'} minH='85vh'>
+    <Box
+      bg='white'
+      rounded={'xl'}
+      minH='85vh'
+      style={{
+        backgroundImage: 'url(/rainbow-vortex.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 150%',
+      }}
+    >
       <Flex
         flexDir={'column'}
         justifyContent={'center'}
@@ -71,7 +80,7 @@ function HomePage() {
             .
           </Text>
         </Text>
-        <ChakraBox
+        {/* <ChakraBox
           display={{ base: 'none', lg: 'flex' }}
           style={{
             background: 'black',
@@ -95,7 +104,7 @@ function HomePage() {
             repeat: Infinity,
             repeatDelay: 1,
           }}
-        />
+        /> */}
         <Text fontSize={['sm', 'md']} color={'#E94057'} zIndex='2' fontWeight={'bold'} mt='3rem'>
           Scroll down to browse our products!
         </Text>

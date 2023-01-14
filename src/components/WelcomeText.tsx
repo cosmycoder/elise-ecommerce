@@ -12,7 +12,12 @@ function WelcomeText() {
       <Text bgGradient={'linear(to-br, #8A2387,#E94057,darkorange)'} bgClip={'text'}>
         Welcome&nbsp;
       </Text>
-      <TextTransition style={{ color: 'darkorange' }} inline springConfig={presets.wobbly}>
+      <TextTransition
+        style={{ color: 'darkorange' }}
+        inline
+        springConfig={presets.wobbly}
+        direction='up'
+      >
         {texts[index % texts.length]}
       </TextTransition>
       <Text color='#E94057'>!</Text>

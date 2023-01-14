@@ -5,9 +5,9 @@ export const useTextIndex = () => {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
-    const intervalId = setInterval(() => setIndex((index) => index + 1), 2500)
-    return () => clearTimeout(intervalId)
-  }, [])
+    const id = setTimeout(() => setIndex((index) => index + 1), 2500)
+    return () => clearTimeout(id)
+  }, [index])
 
   return index
 }
