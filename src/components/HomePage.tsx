@@ -1,15 +1,11 @@
-import { Box, Text, Flex, chakra, StatDownArrow } from '@chakra-ui/react'
+import { Box, Text, Flex, StatDownArrow, Image } from '@chakra-ui/react'
 import { ProductCard } from './Product/ProductCard'
 import React, { useRef } from 'react'
 import { Product } from '../types/fakeApiTypes'
 import { useFetchItemsQuery } from '../hooks/useFetchItemsQuery'
-import { isValidMotionProp, motion } from 'framer-motion'
 import { ProductCardSkeleton } from './ProductCardSkeleton'
 import { useUser } from '@auth0/nextjs-auth0/client'
-import { useRouter } from 'next/router'
-import TextTransition, { presets } from 'react-text-transition'
-import { texts } from '../data/texts'
-import { useTextIndex } from '../hooks/useTextIndex'
+
 import WelcomeText from './WelcomeText'
 
 function HomePage() {
@@ -19,28 +15,14 @@ function HomePage() {
     error,
   }: { data: Product[] | undefined; isError: boolean; error: any } = useFetchItemsQuery()
   const { user } = useUser()
-  const router = useRouter()
   const scrollToRef = useRef<HTMLDivElement>(null)
-  const index = useTextIndex()
-  const ChakraBox = chakra(motion.div, {
-    shouldForwardProp: isValidMotionProp,
-  })
 
   if (isError) {
     return <span>Error: {error.message}</span>
   }
 
   return (
-    <Box
-      bg='white'
-      rounded={'xl'}
-      minH='85vh'
-      style={{
-        backgroundImage: 'url(/rainbow-vortex.svg)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 150%',
-      }}
-    >
+    <Box bg='white' rounded={'xl'} minH='85vh'>
       <Flex
         flexDir={'column'}
         justifyContent={'center'}
@@ -49,6 +31,8 @@ function HomePage() {
         pt='1.5rem'
         mb='5rem'
         h='90vh'
+        position={'relative'}
+        mx='-4'
       >
         {/* Welcome username part */}
         {user ? (
@@ -80,31 +64,6 @@ function HomePage() {
             .
           </Text>
         </Text>
-        {/* <ChakraBox
-          display={{ base: 'none', lg: 'flex' }}
-          style={{
-            background: 'black',
-            width: '200px',
-            height: '200px',
-            zIndex: '1',
-            position: 'absolute',
-            marginLeft: '393px',
-            marginBottom: '60px',
-          }}
-          animate={{
-            scale: [1, 2, 2, 1, 0],
-            rotate: [180, 0, 180, 180, 0],
-            borderRadius: ['25%', '50%', '0%', '0%', '50%'],
-          }}
-          // @ts-ignore no problem in operation, although type error appears.
-          transition={{
-            duration: 2,
-            ease: 'easeInOut',
-            times: [0, 0.2, 0.5, 0.8, 1],
-            repeat: Infinity,
-            repeatDelay: 1,
-          }}
-        /> */}
         <Text fontSize={['sm', 'md']} color={'#E94057'} zIndex='2' fontWeight={'bold'} mt='3rem'>
           Scroll down to browse our products!
         </Text>
@@ -125,6 +84,15 @@ function HomePage() {
           }}
           _hover={{ cursor: 'pointer' }}
         />
+
+        <Image
+          src='/wave.svg'
+          alt='footer bg'
+          bottom='0'
+          position={'absolute'}
+          width='100%'
+          height={['12.5rem', '25rem']}
+        />
       </Flex>
 
       <Flex
@@ -135,6 +103,7 @@ function HomePage() {
         justifyContent={'center'}
         flexGrow='100%'
         id='products'
+        mb={[null, '3rem']}
         ref={scrollToRef}
       >
         {products ? (
