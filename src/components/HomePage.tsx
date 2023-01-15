@@ -1,4 +1,4 @@
-import { Box, Text, Flex, StatDownArrow, Image } from '@chakra-ui/react'
+import { Box, Text, Flex, StatDownArrow, Image, Input } from '@chakra-ui/react'
 import { ProductCard } from './Product/ProductCard'
 import React, { useRef } from 'react'
 import { Product } from '../types/fakeApiTypes'
@@ -8,6 +8,14 @@ import { useUser } from '@auth0/nextjs-auth0/client'
 
 import WelcomeText from './WelcomeText'
 
+export function SearchBar({ filter, setFilter }: any) {
+  return (
+    <Flex justifyContent={'center'} mb='3rem'>
+      <Input w='200px' textAlign={'center'} onChange={(e) => setFilter(e.target.value)} />
+    </Flex>
+  )
+}
+
 function HomePage() {
   const {
     data: products,
@@ -16,6 +24,7 @@ function HomePage() {
   }: { data: Product[] | undefined; isError: boolean; error: any } = useFetchItemsQuery()
   const { user } = useUser()
   const scrollToRef = useRef<HTMLDivElement>(null)
+  const [filter, setFilter] = React.useState('')
 
   if (isError) {
     return <span>Error: {error.message}</span>
@@ -95,6 +104,8 @@ function HomePage() {
         />
       </Flex>
 
+      <SearchBar filter={filter} setFilter={setFilter} />
+
       <Flex
         mx='auto'
         maxW={{ base: '100%', '2xl': '75%' }}
@@ -107,7 +118,9 @@ function HomePage() {
         ref={scrollToRef}
       >
         {products ? (
-          products.map((p: Product) => <ProductCard key={p.id} product={p} />)
+          products
+            .filter((e) => e.title.toLowerCase().includes(filter))
+            .map((p: Product) => <ProductCard key={p.id} product={p} />)
         ) : (
           <>
             <ProductCardSkeleton />
