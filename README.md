@@ -9,7 +9,7 @@ Stay tuned for more updates as I continue to develop and improve Elise!
 ## Work-in-Progress & To-Dos
 
 - [ ] Implement Checkout page.
-- [ ] Add Search functionality.
+- [x] Add Search functionality.
 - [ ] Divide Home and Products pages; Home page should be about who we are and what we do and maybe include some featured products.
 - [ ] Products page should have categories.
 - [ ] See if you can integrate Stripe as a payment processing service.
