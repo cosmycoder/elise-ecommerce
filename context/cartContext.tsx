@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { useFetchItemsQuery } from '../src/hooks/useFetchItemsQuery'
 import { CartDefaultValues } from '../src/types/cartTypes'
 
@@ -7,6 +7,12 @@ const Context = createContext(CartDefaultValues)
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState(CartDefaultValues.cart)
   const { data } = useFetchItemsQuery()
+
+  //set cart from local storage if it exists
+  useEffect(() => {
+    let cart = JSON.parse(localStorage.getItem('cart')!)
+    if (cart) setCart(cart)
+  }, [])
 
   const addToCart = (id: number, quantity: number) => {
     let currentCart = structuredClone(cart)
@@ -17,14 +23,20 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       document.getElementById('navbar')!.style.opacity = '1'
     }) //make navbar visible with fading in animation.
 
+    //if item is not in cart, add it to cart
     if (index === -1) {
       currentCart.push({ id, quantity })
-      return setCart(currentCart)
+      setCart(currentCart)
+      localStorage.setItem('cart', JSON.stringify(currentCart))
+      return
     }
 
+    //if item is in cart, add quantity to it
     item.quantity += quantity
     currentCart[index] = item
-    return setCart(currentCart)
+    setCart(currentCart)
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+    return
   }
 
   const removeFromCart = (id: number, quantity: number) => {
@@ -38,8 +50,10 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     currentCart[index] = item
 
     const filteredCart = currentCart.filter((e) => e.id === 0 || e.quantity > 0)
+    setCart(filteredCart)
+    localStorage.setItem('cart', JSON.stringify(filteredCart))
 
-    return setCart(filteredCart)
+    return
   }
 
   const setItemQuantity = (id: number, quantity: number) => {
@@ -51,8 +65,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
     item.quantity = quantity
     currentCart[index] = item
-
-    return setCart(currentCart)
+    setCart(currentCart)
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+    return
   }
 
   const calculateSubTotal = () => {
@@ -69,9 +84,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <Context.Provider
-      value={{ cart, setCart, addToCart, calculateSubTotal, removeFromCart, setItemQuantity }}
-    >
+    <Context.Provider value={{ cart, setCart, addToCart, calculateSubTotal, removeFromCart, setItemQuantity }}>
       {children}
     </Context.Provider>
   )
